@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -25,28 +26,64 @@ export default function Hero() {
 
   return (
     <header id="comenzar" className="container mx-auto px-6 py-20 md:py-32 flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
-      
-      {/* BLOQUE IZQUIERDO */}
+
+      {/* BLOQUE IZQUIERDO con animaciones en cascada */}
       <div className="flex-1 space-y-6 text-center lg:text-left">
-        <div className="flex justify-center lg:justify-start mb-2">
-  <div className="relative w-50 h-50">
-    <Image src="/logo.png" alt="Comprapp Logo" fill className="object-contain" />
-  </div>
-</div>
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-slate-950 leading-[1.05]">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.7 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex justify-center lg:justify-start"
+        >
+          <div className="relative w-20 h-20">
+            <Image src="/logo.png" alt="Comprapp Logo" fill className="object-contain" />
+          </div>
+        </motion.div>
+
+        {/* Badge */}
+        <motion.span
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+          className="bg-gradient-to-r from-purple-50 to-cyan-50 text-purple-700 text-[10px] font-black tracking-widest uppercase px-4 py-1.5 rounded-full inline-block border border-purple-200/60 shadow-sm backdrop-blur-sm"
+        >
+          ⚡ Disponible para Android y PC
+        </motion.span>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
+          className="text-5xl md:text-7xl font-extrabold tracking-tighter text-slate-950 leading-[1.05]"
+        >
           Tu mercado local, <br />
-          <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent drop-shadow-sm">en tu bolsillo</span>
-        </h1>
+          <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent drop-shadow-sm">
+            en tu bolsillo
+          </span>
+        </motion.h1>
 
-        <p className="text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed font-normal">
-          Compra y vende en tu zona con precios en <span className="text-slate-900 font-semibold">Bs y USD a tasa BCV</span>. Gestiona tu tienda desde Android o tu PC, con o sin internet.
-        </p>
+        {/* Párrafo */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="text-lg md:text-xl text-slate-600 max-w-xl leading-relaxed font-normal"
+        >
+          Compra y vende en tu zona con precios en{" "}
+          <span className="text-slate-900 font-semibold">Bs y USD a tasa BCV</span>.
+          Gestiona tu tienda desde Android o tu PC, con o sin internet.
+        </motion.p>
 
-        {/* BOTONES DE DESCARGA */}
-        <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6">
-          
-          {/* Botón principal — APK Android */}
+        {/* Botones */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.55, ease: "easeOut" }}
+          className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6"
+        >
           <a
             href="/downloads/comprapp.apk"
             download
@@ -59,7 +96,6 @@ export default function Hero() {
             </div>
           </a>
 
-          {/* Botón dinámico — PWA en PC o Ver funciones */}
           {isInstallable ? (
             <button
               onClick={handleInstallClick}
@@ -79,24 +115,34 @@ export default function Hero() {
               Ver funciones →
             </Link>
           )}
-        </div>
+        </motion.div>
 
-        {/* Nota de versión */}
-        <p className="text-xs text-slate-400 pt-2">
+        {/* Nota versión */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.75 }}
+          className="text-xs text-slate-400 pt-2"
+        >
           Versión actual: <span className="font-semibold text-slate-500">v1.2.0</span> · Android 8.0+ requerido
-        </p>
+        </motion.p>
+
       </div>
 
       {/* ESCENA MULTIPLATAFORMA */}
-      <div className="flex-1 flex justify-center w-full max-w-xl lg:max-w-none relative mt-16 lg:mt-0 group/scene">
-
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        className="flex-1 flex justify-center w-full max-w-xl lg:max-w-none relative mt-16 lg:mt-0 group/scene"
+      >
         <div className="absolute top-12 left-12 w-72 h-72 bg-purple-300 rounded-full blur-[90px] opacity-30 transition-all duration-700 group-hover/scene:opacity-40 group-hover/scene:scale-110"></div>
         <div className="absolute bottom-12 right-12 w-72 h-72 bg-cyan-300 rounded-full blur-[90px] opacity-30 transition-all duration-700 group-hover/scene:opacity-40 group-hover/scene:scale-110"></div>
 
         <div className="relative w-full min-h-[450px] flex items-center justify-between p-2 gap-4">
 
           {/* 📱 ANDROID APP */}
-          <div className="w-[28%] aspect-[9/19] bg-white/80 backdrop-blur-2xl rounded-[2rem] shadow-xl border-[8px] border-slate-950 overflow-hidden flex flex-col items-center justify-center p-4 text-center ring-1 ring-black/10 self-end mb-6 cursor-pointer z-20
+          <div className="w-[28%] aspect-[9/19] bg-white/80 backdrop-blur-2xl rounded-[2rem] shadow-xl border-[3px] border-slate-950 overflow-hidden flex flex-col items-center justify-center p-4 text-center ring-1 ring-black/10 self-end mb-6 cursor-pointer z-20
             transition-all duration-500 ease-out transform -rotate-2
             group-hover/scene:-translate-x-10 group-hover/scene:opacity-40 group-hover/scene:scale-95
             hover:!translate-x-0 hover:!opacity-100 hover:!scale-105 hover:!z-50 hover:border-cyan-500 hover:shadow-cyan-500/20">
@@ -135,8 +181,8 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* 📱 TABLET / POS */}
-          <div className="w-[32%] aspect-[3/4] bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border-[6px] border-slate-900 overflow-hidden flex flex-col items-center justify-center p-4 text-center ring-1 ring-black/10 self-end mb-2 cursor-pointer z-20
+          {/* 📱 VENDEDOR POS */}
+          <div className="w-[32%] aspect-[3/4] bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border-[3px] border-slate-900 overflow-hidden flex flex-col items-center justify-center p-4 text-center ring-1 ring-black/10 self-end mb-2 cursor-pointer z-20
             transition-all duration-500 ease-out transform rotate-2
             group-hover/scene:translate-x-10 group-hover/scene:opacity-40 group-hover/scene:scale-95
             hover:!translate-x-0 hover:!opacity-100 hover:!scale-105 hover:!z-50 hover:border-purple-500 hover:shadow-purple-500/20">
@@ -151,7 +197,8 @@ export default function Hero() {
           </div>
 
         </div>
-      </div>
+      </motion.div>
+
     </header>
   );
 }
