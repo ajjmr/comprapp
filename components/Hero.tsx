@@ -143,7 +143,7 @@ export default function Hero() {
         <div className="relative w-full min-h-[500px] flex items-center justify-between p-2">
 
           {/* ── TELÉFONO ANDROID ── */}
-          <div className="relative w-[30%] self-end mb-4 z-20 cursor-pointer
+          <div className="relative w-[38%] self-end mb-4 z-20 cursor-pointer
             transition-all duration-500 ease-out -rotate-3
             group-hover/scene:-translate-x-4 group-hover/scene:opacity-50 group-hover/scene:scale-95
             hover:!translate-x-0 hover:!opacity-100 hover:!scale-[1.04] hover:!z-50 hover:!-rotate-1">
@@ -192,7 +192,7 @@ export default function Hero() {
           </div>
 
           {/* ── PANTALLA PC / DASHBOARD ── */}
-          <div className="absolute left-[18%] right-[18%] top-0 bottom-10 z-10 cursor-pointer
+          <div className="absolute left-[10%] right-[10%] top-0 bottom-16 z-10 cursor-pointer
             transition-all duration-500 ease-out
             group-hover/scene:scale-[1.03] group-hover/scene:z-30
             hover:!scale-[1.05] hover:!z-50">
@@ -247,7 +247,7 @@ export default function Hero() {
           </div>
 
           {/* ── TABLET / VENDEDOR POS ── */}
-          <div className="relative w-[34%] self-end mb-0 z-20 cursor-pointer
+          <div className="relative w-[50%] self-end mb-0 z-20 cursor-pointer
             transition-all duration-500 ease-out rotate-2
             group-hover/scene:translate-x-4 group-hover/scene:opacity-50 group-hover/scene:scale-95
             hover:!translate-x-0 hover:!opacity-100 hover:!scale-[1.04] hover:!z-50 hover:!rotate-1">
