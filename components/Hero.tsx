@@ -32,12 +32,12 @@ export default function Hero() {
 
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex justify-center lg:justify-start"
         >
-          <div className="relative w-48 h-48">
+          <div className="relative w-50 h-50">
             <Image src="/logo.png" alt="Comprapp Logo" fill className="object-contain" />
           </div>
         </motion.div>
@@ -89,10 +89,10 @@ export default function Hero() {
             download
             className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:opacity-90 transition-all text-center flex items-center gap-3"
           >
-            <span className="text-2xl">📱</span>
+            <span className="text-2xl">📱💻</span>
             <div className="text-left">
-              <p className="text-[10px] font-normal opacity-80">Descarga gratis</p>
-              <p className="text-sm font-bold">Android APK</p>
+              <p className="text-[12px] font-normal opacity-80">Descarga gratis</p>
+              <p className="text-sm font-bold">DESCARGAR</p>
             </div>
           </a>
 

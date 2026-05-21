@@ -15,8 +15,8 @@ export default function Footer() {
           download
           className="bg-white text-purple-700 font-bold px-10 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition-all inline-flex items-center gap-3"
         >
-          <span className="text-xl">📱</span>
-          Descargar APK — Android
+          <span className="text-xl">📱💻</span>
+          Descargar - ANDROID, IOS & PC
         </a>
       </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
               <li><a href="#funciones" className="hover:text-purple-600 transition-colors">Funciones</a></li>
               <li><a href="#casos" className="hover:text-purple-600 transition-colors">Casos de uso</a></li>
               <li><a href="#roadmap" className="hover:text-purple-600 transition-colors">Roadmap</a></li>
-              <li><a href="/downloads/comprapp.apk" download className="hover:text-purple-600 transition-colors">Descargar APK</a></li>
+              <li><a href="/downloads/comprapp.apk" download className="hover:text-purple-600 transition-colors">Descargar</a></li>
             </ul>
           </div>
 
