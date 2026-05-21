@@ -5,7 +5,7 @@ import UseCases from '@/components/UseCases';
 import WhyChoose from '@/components/WhyChoose';
 import Roadmap from '@/components/Roadmap';
 import Footer from '@/components/Footer';
-import FadeIn from '@/components/FadeIn'; // <--- El punto y coma va afuera de la comilla
+import FadeIn from '@/components/FadeIn';
 
 export default function Home() {
   return (

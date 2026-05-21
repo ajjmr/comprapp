@@ -60,9 +60,9 @@ export default function Roadmap() {
                   : "border-slate-200"
               }`}
             >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span
-                  className={`text-white text-xs font-bold px-3 py-1.5 rounded-lg ${
+                  className={`shrink-0 text-white text-xs font-bold px-3 py-1.5 rounded-lg ${
                     v.status === "done"
                       ? "bg-slate-700"
                       : v.status === "current"
@@ -72,7 +72,7 @@ export default function Roadmap() {
                 >
                   {v.version}
                 </span>
-                <h3 className="text-xl font-bold text-slate-900">{v.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900 min-w-0 flex-1">{v.title}</h3>
                 {v.status === "current" && (
                   <span className="ml-auto text-[10px] font-bold text-purple-600 bg-purple-50 border border-purple-200 px-2 py-1 rounded-full">
                     ● En producción

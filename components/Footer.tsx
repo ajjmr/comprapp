@@ -1,3 +1,5 @@
+import DownloadButton from "@/components/DownloadButton";
+
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-slate-200 relative z-10">
@@ -10,14 +12,10 @@ export default function Footer() {
         <p className="text-white/80 text-base mb-8 max-w-xl mx-auto">
           Descarga COMPRAPP gratis y empieza a vender hoy mismo.
         </p>
-        <a
-          href="/downloads/comprapp.apk"
-          download
-          className="bg-white text-purple-700 font-bold px-10 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition-all inline-flex items-center gap-3"
-        >
+        <DownloadButton className="bg-white text-purple-700 font-bold px-10 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition-all inline-flex items-center gap-3">
           <span className="text-xl">📱💻</span>
-          Descargar - ANDROID, IOS & PC
-        </a>
+          Descargar - ANDROID, IOS &amp; PC
+        </DownloadButton>
       </div>
 
       {/* Footer content */}
@@ -31,37 +29,71 @@ export default function Footer() {
               El ecosistema de comercio local diseñado para economías dinámicas.
             </p>
             <p className="text-xs text-slate-400 mt-3">
-              Powered by <span className="text-purple-600 font-bold">JOTASYSTEM</span>
+              Powered by{" "}
+              <span className="text-purple-600 font-bold">JOTASYSTEM</span>
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <p className="font-bold text-slate-800 text-sm mb-4 uppercase tracking-wider">Plataforma</p>
+            <p className="font-bold text-slate-800 text-sm mb-4 uppercase tracking-wider">
+              Plataforma
+            </p>
             <ul className="space-y-2 text-sm text-slate-500">
-              <li><a href="#funciones" className="hover:text-purple-600 transition-colors">Funciones</a></li>
-              <li><a href="#casos" className="hover:text-purple-600 transition-colors">Casos de uso</a></li>
-              <li><a href="#roadmap" className="hover:text-purple-600 transition-colors">Roadmap</a></li>
-              <li><a href="/downloads/comprapp.apk" download className="hover:text-purple-600 transition-colors">Descargar</a></li>
+              <li>
+                <a href="#funciones" className="hover:text-purple-600 transition-colors">
+                  Funciones
+                </a>
+              </li>
+              <li>
+                <a href="#casos" className="hover:text-purple-600 transition-colors">
+                  Casos de uso
+                </a>
+              </li>
+              <li>
+                <a href="#roadmap" className="hover:text-purple-600 transition-colors">
+                  Roadmap
+                </a>
+              </li>
+              <li>
+                <DownloadButton className="hover:text-purple-600 transition-colors">
+                  Descargar
+                </DownloadButton>
+              </li>
             </ul>
           </div>
 
           {/* Contacto */}
           <div>
-            <p className="font-bold text-slate-800 text-sm mb-4 uppercase tracking-wider">Contacto</p>
+            <p className="font-bold text-slate-800 text-sm mb-4 uppercase tracking-wider">
+              Contacto
+            </p>
             <ul className="space-y-2 text-sm text-slate-500">
               <li>
-                <a href="mailto:soporte@comprapp.net" className="hover:text-purple-600 transition-colors">
+                <a
+                  href="mailto:soporte@comprapp.net"
+                  className="hover:text-purple-600 transition-colors"
+                >
                   soporte@comprapp.net
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com/comprapp" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition-colors">
+                <a
+                  href="https://instagram.com/comprapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-purple-600 transition-colors"
+                >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="https://tiktok.com/@comprapp" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition-colors">
+                <a
+                  href="https://tiktok.com/@comprapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-purple-600 transition-colors"
+                >
                   TikTok
                 </a>
               </li>
@@ -74,8 +106,12 @@ export default function Footer() {
         <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} Comprapp Inc. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <a href="/privacidad" className="hover:text-purple-600 transition-colors">Política de privacidad</a>
-            <a href="/terminos" className="hover:text-purple-600 transition-colors">Términos de uso</a>
+            <a href="/privacidad" className="hover:text-purple-600 transition-colors">
+              Política de privacidad
+            </a>
+            <a href="/terminos" className="hover:text-purple-600 transition-colors">
+              Términos de uso
+            </a>
           </div>
         </div>
       </div>

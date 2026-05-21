@@ -6,7 +6,7 @@ export default function Features() {
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">Arquitectura para el comercio inteligente</h2>
           <p className="text-base md:text-lg text-slate-600 mt-4 font-normal">Olvídate de las limitaciones geográficas. Un motor diseñado para aportar visibilidad operativa a comerciantes en cualquier lugar del mundo.</p>
         </div>
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-xl transition-all">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold mb-5 text-xl">🔄</div>
             <h3 className="text-lg font-bold mb-2 text-slate-900">Motor Multi-Moneda</h3>
