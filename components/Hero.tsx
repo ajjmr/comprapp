@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <header id="comenzar" className="container mx-auto px-6 py-20 md:py-32 flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
 
-      {/* BLOQUE IZQUIERDO con animaciones en cascada */}
+      {/* BLOQUE IZQUIERDO */}
       <div className="flex-1 space-y-6 text-center lg:text-left">
 
         {/* Logo */}
@@ -129,71 +129,165 @@ export default function Hero() {
 
       </div>
 
-      {/* ESCENA MULTIPLATAFORMA */}
+      {/* ESCENA MULTIPLATAFORMA — dispositivos rediseñados */}
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
         className="flex-1 flex justify-center w-full max-w-xl lg:max-w-none relative mt-16 lg:mt-0 group/scene"
       >
-        <div className="absolute top-12 left-12 w-72 h-72 bg-purple-300 rounded-full blur-[90px] opacity-30 transition-all duration-700 group-hover/scene:opacity-40 group-hover/scene:scale-110"></div>
-        <div className="absolute bottom-12 right-12 w-72 h-72 bg-cyan-300 rounded-full blur-[90px] opacity-30 transition-all duration-700 group-hover/scene:opacity-40 group-hover/scene:scale-110"></div>
+        {/* Luces de fondo */}
+        <div className="absolute top-12 left-12 w-72 h-72 bg-purple-300 rounded-full blur-[90px] opacity-25 transition-all duration-700 group-hover/scene:opacity-35"></div>
+        <div className="absolute bottom-12 right-12 w-72 h-72 bg-cyan-300 rounded-full blur-[90px] opacity-25 transition-all duration-700 group-hover/scene:opacity-35"></div>
 
-        <div className="relative w-full min-h-[450px] flex items-center justify-between p-2 gap-4">
+        <div className="relative w-full min-h-[500px] flex items-center justify-between p-2">
 
-          {/* 📱 ANDROID APP */}
-          <div className="w-[28%] aspect-[9/19] bg-white/80 backdrop-blur-2xl rounded-[2rem] shadow-xl border-[3px] border-slate-950 overflow-hidden flex flex-col items-center justify-center p-4 text-center ring-1 ring-black/10 self-end mb-6 cursor-pointer z-20
-            transition-all duration-500 ease-out transform -rotate-2
-            group-hover/scene:-translate-x-10 group-hover/scene:opacity-40 group-hover/scene:scale-95
-            hover:!translate-x-0 hover:!opacity-100 hover:!scale-105 hover:!z-50 hover:border-cyan-500 hover:shadow-cyan-500/20">
-            <div className="absolute top-1.5 w-16 h-3.5 bg-slate-950 rounded-full"></div>
-            <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-slate-200 shadow-sm mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1px]">
-              <div className="relative w-full h-full rounded-[9px] overflow-hidden bg-white">
-                <Image src="/logo.png" alt="Logo Android" fill sizes="50px" className="object-cover" />
-              </div>
-            </div>
-            <p className="text-slate-900 font-black text-xs tracking-wide uppercase">Android App</p>
-            <p className="text-slate-500 text-[9px] mt-1 font-normal leading-tight">App móvil para clientes y vendedores.</p>
-            <div className="absolute bottom-1 w-12 h-0.5 bg-slate-400 rounded-full"></div>
-          </div>
+          {/* ── TELÉFONO ANDROID ── */}
+          <div className="relative w-[30%] self-end mb-4 z-20 cursor-pointer
+            transition-all duration-500 ease-out -rotate-3
+            group-hover/scene:-translate-x-4 group-hover/scene:opacity-50 group-hover/scene:scale-95
+            hover:!translate-x-0 hover:!opacity-100 hover:!scale-[1.04] hover:!z-50 hover:!-rotate-1">
 
-          {/* 🖥️ CONSOLA WEB */}
-          <div className="absolute left-[15%] right-[15%] top-0 bottom-8 bg-white/60 backdrop-blur-xl rounded-2xl overflow-hidden flex flex-col ring-1 ring-black/10 z-10 transition-all duration-500 ease-out transform shadow-2xl border-4 border-slate-900
-            group-hover/scene:scale-[1.04] group-hover/scene:z-30 group-hover/scene:bg-white/95
-            hover:!scale-[1.06] hover:!z-50 hover:border-purple-600 hover:shadow-purple-500/20">
-            <div className="h-8 bg-slate-900 border-b border-slate-800 flex items-center gap-2 px-4 justify-between transition-colors duration-500 group-hover/scene:bg-slate-950">
-              <div className="flex gap-1.5">
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-              </div>
-              <p className="text-slate-400 text-[9px] font-mono tracking-tight group-hover/scene:text-purple-400 lowercase">comprapp.net/dashboard</p>
-              <div className="w-4"></div>
-            </div>
-            <div className="w-full flex-1 bg-white/10 p-6 flex flex-col items-center justify-center text-center">
-              <div className="relative w-12 h-12 overflow-hidden rounded-xl border border-slate-200 shadow-md mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1px]">
-                <div className="relative w-full h-full rounded-[11px] overflow-hidden bg-white">
-                  <Image src="/logo.png" alt="Logo PC" fill sizes="60px" className="object-cover" />
+            {/* Cuerpo del teléfono */}
+            <div className="relative bg-slate-900 rounded-[2.5rem] p-[3px] shadow-2xl">
+              {/* Reflejo lateral izquierdo */}
+              <div className="absolute left-0 top-[15%] bottom-[15%] w-[2px] bg-gradient-to-b from-transparent via-white/20 to-transparent rounded-full"></div>
+              {/* Botones laterales */}
+              <div className="absolute -right-[3px] top-[28%] w-[3px] h-8 bg-slate-700 rounded-r-full"></div>
+              <div className="absolute -left-[3px] top-[22%] w-[3px] h-6 bg-slate-700 rounded-l-full"></div>
+              <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full"></div>
+              <div className="absolute -left-[3px] top-[46%] w-[3px] h-10 bg-slate-700 rounded-l-full"></div>
+
+              {/* Pantalla */}
+              <div className="bg-gradient-to-b from-slate-50 to-white rounded-[2.3rem] overflow-hidden aspect-[9/19.5] flex flex-col">
+                {/* Notch dinámico */}
+                <div className="flex justify-center pt-3 pb-1">
+                  <div className="w-20 h-5 bg-slate-900 rounded-full flex items-center justify-center gap-1.5">
+                    <div className="w-1.5 h-1.5 bg-slate-600 rounded-full"></div>
+                    <div className="w-2.5 h-2.5 bg-slate-700 rounded-full"></div>
+                  </div>
+                </div>
+                {/* Contenido pantalla */}
+                <div className="flex-1 flex flex-col items-center justify-center px-4 pb-4 text-center">
+                  <div className="relative w-12 h-12 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
+                    <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-white">
+                      <Image src="/logo.png" alt="App" fill sizes="48px" className="object-cover" />
+                    </div>
+                  </div>
+                  <p className="text-slate-900 font-black text-[10px] tracking-widest uppercase mb-1">Android App</p>
+                  <p className="text-slate-400 text-[8px] leading-tight max-w-[80px]">Clientes y vendedores</p>
+                  {/* Mini UI simulada */}
+                  <div className="mt-4 w-full space-y-1.5">
+                    <div className="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                    <div className="h-1.5 bg-purple-100 rounded-full w-4/5 mx-auto"></div>
+                    <div className="h-1.5 bg-slate-100 rounded-full w-3/5 mx-auto"></div>
+                  </div>
+                </div>
+                {/* Barra home */}
+                <div className="flex justify-center pb-2">
+                  <div className="w-16 h-1 bg-slate-300 rounded-full"></div>
                 </div>
               </div>
-              <p className="text-slate-900 font-extrabold text-sm tracking-wide uppercase">Dashboard Web</p>
-              <p className="text-slate-500 text-[10px] px-8 max-w-[280px] mt-1 font-normal leading-tight">Panel de gestión para vendedores — inventario, pedidos y reportes.</p>
             </div>
           </div>
 
-          {/* 📱 VENDEDOR POS */}
-          <div className="w-[32%] aspect-[3/4] bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border-[3px] border-slate-900 overflow-hidden flex flex-col items-center justify-center p-4 text-center ring-1 ring-black/10 self-end mb-2 cursor-pointer z-20
-            transition-all duration-500 ease-out transform rotate-2
-            group-hover/scene:translate-x-10 group-hover/scene:opacity-40 group-hover/scene:scale-95
-            hover:!translate-x-0 hover:!opacity-100 hover:!scale-105 hover:!z-50 hover:border-purple-500 hover:shadow-purple-500/20">
-            <div className="relative w-9 h-9 overflow-hidden rounded-xl border border-slate-200 shadow-sm mb-2 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1px]">
-              <div className="relative w-full h-full rounded-[8px] overflow-hidden bg-white">
-                <Image src="/logo.png" alt="Logo POS" fill sizes="40px" className="object-cover" />
+          {/* ── PANTALLA PC / DASHBOARD ── */}
+          <div className="absolute left-[18%] right-[18%] top-0 bottom-10 z-10 cursor-pointer
+            transition-all duration-500 ease-out
+            group-hover/scene:scale-[1.03] group-hover/scene:z-30
+            hover:!scale-[1.05] hover:!z-50">
+
+            {/* Marco monitor */}
+            <div className="bg-slate-900 rounded-2xl p-[3px] shadow-2xl h-full flex flex-col">
+              {/* Barra superior */}
+              <div className="bg-slate-800 rounded-t-xl px-4 py-2 flex items-center gap-2 justify-between">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 bg-red-400 rounded-full"></div>
+                  <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
+                  <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
+                </div>
+                <div className="flex-1 mx-4">
+                  <div className="bg-slate-700 rounded-md px-3 py-1 flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+                    <p className="text-slate-400 text-[8px] font-mono">comprapp.net/dashboard</p>
+                  </div>
+                </div>
+                <div className="w-6"></div>
+              </div>
+              {/* Contenido pantalla */}
+              <div className="flex-1 bg-gradient-to-br from-slate-50 to-white rounded-b-xl p-4 flex flex-col items-center justify-center text-center">
+                <div className="relative w-14 h-14 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
+                  <div className="relative w-full h-full rounded-[13px] overflow-hidden bg-white">
+                    <Image src="/logo.png" alt="Dashboard" fill sizes="56px" className="object-cover" />
+                  </div>
+                </div>
+                <p className="text-slate-900 font-extrabold text-xs tracking-widest uppercase mb-1">Dashboard Web</p>
+                <p className="text-slate-400 text-[9px] max-w-[180px] leading-tight">Inventario, pedidos y reportes en tiempo real</p>
+                {/* Mini UI simulada */}
+                <div className="mt-5 w-full grid grid-cols-3 gap-2">
+                  <div className="bg-purple-50 border border-purple-100 rounded-lg p-2">
+                    <div className="h-1 bg-purple-200 rounded w-full mb-1"></div>
+                    <div className="h-1 bg-purple-100 rounded w-2/3"></div>
+                  </div>
+                  <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-2">
+                    <div className="h-1 bg-cyan-200 rounded w-full mb-1"></div>
+                    <div className="h-1 bg-cyan-100 rounded w-3/4"></div>
+                  </div>
+                  <div className="bg-slate-50 border border-slate-100 rounded-lg p-2">
+                    <div className="h-1 bg-slate-200 rounded w-full mb-1"></div>
+                    <div className="h-1 bg-slate-100 rounded w-1/2"></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="text-slate-900 font-bold text-xs uppercase">Vendedor POS</p>
-            <p className="text-slate-500 text-[9px] mt-1 max-w-[120px] font-normal leading-tight">Gestiona tu tienda y recibe pedidos en tiempo real.</p>
-            <div className="absolute bottom-1 w-10 h-0.5 bg-slate-400 rounded-full"></div>
+            {/* Pie del monitor */}
+            <div className="flex justify-center mt-1">
+              <div className="w-12 h-1 bg-slate-700 rounded-full"></div>
+            </div>
+          </div>
+
+          {/* ── TABLET / VENDEDOR POS ── */}
+          <div className="relative w-[34%] self-end mb-0 z-20 cursor-pointer
+            transition-all duration-500 ease-out rotate-2
+            group-hover/scene:translate-x-4 group-hover/scene:opacity-50 group-hover/scene:scale-95
+            hover:!translate-x-0 hover:!opacity-100 hover:!scale-[1.04] hover:!z-50 hover:!rotate-1">
+
+            {/* Cuerpo tablet */}
+            <div className="relative bg-slate-900 rounded-[1.8rem] p-[3px] shadow-2xl">
+              {/* Reflejo */}
+              <div className="absolute left-0 top-[10%] bottom-[10%] w-[2px] bg-gradient-to-b from-transparent via-white/15 to-transparent rounded-full"></div>
+              {/* Botón lateral */}
+              <div className="absolute -right-[3px] top-[20%] w-[3px] h-10 bg-slate-700 rounded-r-full"></div>
+              <div className="absolute -top-[3px] right-[25%] h-[3px] w-8 bg-slate-700 rounded-t-full"></div>
+
+              {/* Pantalla */}
+              <div className="bg-gradient-to-b from-slate-50 to-white rounded-[1.6rem] overflow-hidden aspect-[3/4] flex flex-col">
+                {/* Cámara frontal */}
+                <div className="flex justify-center pt-2.5 pb-1">
+                  <div className="w-2 h-2 bg-slate-800 rounded-full"></div>
+                </div>
+                {/* Contenido */}
+                <div className="flex-1 flex flex-col items-center justify-center px-4 pb-4 text-center">
+                  <div className="relative w-11 h-11 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
+                    <div className="relative w-full h-full rounded-[13px] overflow-hidden bg-white">
+                      <Image src="/logo.png" alt="POS" fill sizes="44px" className="object-cover" />
+                    </div>
+                  </div>
+                  <p className="text-slate-900 font-black text-[9px] tracking-widest uppercase mb-1">Vendedor POS</p>
+                  <p className="text-slate-400 text-[8px] leading-tight max-w-[90px]">Pedidos en tiempo real</p>
+                  {/* Mini UI simulada */}
+                  <div className="mt-4 w-full space-y-1.5">
+                    <div className="h-1.5 bg-slate-100 rounded-full w-full"></div>
+                    <div className="h-1.5 bg-cyan-100 rounded-full w-4/5 mx-auto"></div>
+                    <div className="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto"></div>
+                  </div>
+                </div>
+                {/* Barra home */}
+                <div className="flex justify-center pb-2">
+                  <div className="w-12 h-1 bg-slate-300 rounded-full"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
