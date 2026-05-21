@@ -37,7 +37,7 @@ export default function Hero() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex justify-center lg:justify-start"
         >
-          <div className="relative w-20 h-20">
+          <div className="relative w-48 h-48">
             <Image src="/logo.png" alt="Comprapp Logo" fill className="object-contain" />
           </div>
         </motion.div>
@@ -49,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
           className="bg-gradient-to-r from-purple-50 to-cyan-50 text-purple-700 text-[10px] font-black tracking-widest uppercase px-4 py-1.5 rounded-full inline-block border border-purple-200/60 shadow-sm backdrop-blur-sm"
         >
-          ⚡ Disponible para Android y PC
+          ⚡ Disponible para Ios, Android y PC
         </motion.span>
 
         {/* Headline */}
