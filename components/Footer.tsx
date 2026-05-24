@@ -14,7 +14,7 @@ export default function Footer() {
         </p>
         <DownloadButton className="bg-white text-purple-700 font-bold px-10 py-4 rounded-xl shadow-xl hover:bg-slate-100 transition-all inline-flex items-center gap-3">
           <span className="text-xl">📱💻</span>
-          Descargar - ANDROID, IOS &amp; PC
+          Descargar - ANDROID &amp; PC
         </DownloadButton>
       </div>
 

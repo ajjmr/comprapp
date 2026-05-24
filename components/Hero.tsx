@@ -59,6 +59,21 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* Nombre marca */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+          className="flex justify-center lg:justify-start"
+        >
+          <span className="text-2xl font-black tracking-wider uppercase text-slate-900">
+            COMPR
+            <span className="bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent">
+              APP
+            </span>
+          </span>
+        </motion.div>
+
         {/* Badge */}
         <motion.span
           initial={{ opacity: 0, y: -12 }}
@@ -66,7 +81,7 @@ export default function Hero() {
           transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
           className="bg-gradient-to-r from-purple-50 to-cyan-50 text-purple-700 text-[10px] font-black tracking-widest uppercase px-4 py-1.5 rounded-full inline-block border border-purple-200/60 shadow-sm backdrop-blur-sm"
         >
-          ⚡ Disponible para Ios, Android y PC
+          ⚡ Disponible para Android y PC
         </motion.span>
 
         {/* Headline */}

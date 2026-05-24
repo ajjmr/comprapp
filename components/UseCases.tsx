@@ -8,11 +8,29 @@ export default function UseCases() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { t: "Boutiques Inteligentes", d: "Vendedores distribuyen catálogos digitales con un toque. Clientes internacionales reservan artículos en preventa." },
-            { t: "Suministros Críticos", d: "Alertas de umbral de stock para inventarios de alta rotación. Reposición y logística automatizada." },
-            { t: "Consumidor Recurrente", d: "Clientes guardan perfiles de compra semanal. Cargar listas complejas toma un solo segundo." }
+            {
+              icon: "🏪",
+              iconBg: "from-purple-500 to-purple-700",
+              t: "Boutiques Inteligentes",
+              d: "Vendedores distribuyen catálogos digitales con un toque. Clientes internacionales reservan artículos en preventa."
+            },
+            {
+              icon: "📦",
+              iconBg: "from-cyan-500 to-cyan-700",
+              t: "Suministros Críticos",
+              d: "Alertas de umbral de stock para inventarios de alta rotación. Reposición y logística automatizada."
+            },
+            {
+              icon: "🤝",
+              iconBg: "from-indigo-500 to-purple-600",
+              t: "Consumidor Recurrente",
+              d: "Clientes guardan perfiles de compra semanal. Cargar listas complejas toma un solo segundo."
+            }
           ].map((c, i) => (
-            <div key={i} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <div key={i} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${c.iconBg} flex items-center justify-center text-white font-bold mb-5 text-xl`}>
+                {c.icon}
+              </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">{c.t}</h3>
               <p className="text-slate-600 text-sm leading-relaxed">{c.d}</p>
             </div>

@@ -7,22 +7,22 @@ export default function Features() {
           <p className="text-base md:text-lg text-slate-600 mt-4 font-normal">Olvídate de las limitaciones geográficas. Un motor diseñado para aportar visibilidad operativa a comerciantes en cualquier lugar del mundo.</p>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-xl transition-all">
+          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold mb-5 text-xl">🔄</div>
             <h3 className="text-lg font-bold mb-2 text-slate-900">Motor Multi-Moneda</h3>
             <p className="text-slate-600 text-xs leading-relaxed">Publica productos en una moneda base. Nuestra plataforma sincroniza tasas locales automáticamente.</p>
           </div>
-          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-xl transition-all">
+          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold mb-5 text-xl">💳</div>
             <h3 className="text-lg font-bold mb-2 text-slate-900">Pasarela Unificada</h3>
             <p className="text-slate-600 text-xs leading-relaxed">Procesa pagos sin fronteras. Soporte para billeteras digitales, transferencias y efectivo.</p>
           </div>
-          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-xl transition-all">
+          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold mb-5 text-xl">⭐</div>
             <h3 className="text-lg font-bold mb-2 text-slate-900">Fidelización Inteligente</h3>
             <p className="text-slate-600 text-xs leading-relaxed">Tarjetas de sellos digitales, cupones automatizados y recompensas basadas en reglas de negocio.</p>
           </div>
-          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-xl transition-all">
+          <div className="p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-200">
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold mb-5 text-xl">📡</div>
             <h3 className="text-lg font-bold mb-2 text-slate-900">Arquitectura Offline</h3>
             <p className="text-slate-600 text-xs leading-relaxed">Gestión robusta de caché local para mantener transacciones seguras sin internet.</p>
