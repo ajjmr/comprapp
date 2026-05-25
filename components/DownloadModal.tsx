@@ -136,7 +136,7 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
 
               {/* C) Android APK - active */}
               <a
-                href="/downloads/comprapp.apk"
+                href="https://comprapp-da702.web.app/downloads/comprapp.apk"
                 download
                 onClick={onClose}
                 className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white cursor-pointer hover:opacity-90 transition-opacity"
@@ -153,7 +153,7 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
 
               {/* D) Dashboard Web - active */}
               <a
-                href="#"
+                href="https://comprapp-da702.web.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white cursor-pointer hover:opacity-90 transition-opacity"
