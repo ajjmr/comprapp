@@ -26,7 +26,7 @@ export default function Footer() {
           <div>
             <p className="font-extrabold text-slate-900 text-lg tracking-tight mb-2">COMPRAPP</p>
             <p className="text-slate-500 text-sm leading-relaxed">
-              El ecosistema de comercio local diseñado para economías dinámicas.
+              La plataforma que conecta tiendas locales con sus clientes, donde sea.
             </p>
             <p className="text-xs text-slate-400 mt-3">
               Powered by{" "}

@@ -105,8 +105,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           className="text-base md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
         >
-          Compra y vende en tu zona con precios en{" "}
-          <span className="text-slate-900 font-semibold">Bs y USD a tasa BCV</span>.
+          Compra y vende en tu zona con precios{" "}
+          <span className="text-slate-900 font-semibold">actualizados en tiempo real</span>.
           Gestiona tu tienda desde Android o tu PC, con o sin internet.
         </motion.p>
 
@@ -154,8 +154,7 @@ export default function Hero() {
           className="text-xs text-slate-400 pt-2"
         >
           Versión actual:{" "}
-          <span className="font-semibold text-slate-500">v1.2.0</span> · Android
-          8.0+ requerido
+          <span className="font-semibold text-slate-500">v1.2.0</span>
         </motion.p>
       </div>
 

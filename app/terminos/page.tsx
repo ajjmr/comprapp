@@ -120,7 +120,7 @@ export default function Terminos() {
               producto o servicio que sea:
             </p>
             <ul className="mt-3 space-y-2 list-disc list-inside text-slate-600">
-              <li>Ilegal conforme a la legislación venezolana o internacional aplicable.</li>
+              <li>Ilegal conforme a la legislación local o internacional aplicable.</li>
               <li>Sustancias controladas, armas o artículos de uso militar sin autorización.</li>
               <li>Material que vulnere derechos de autor, marcas registradas u otros derechos de propiedad intelectual.</li>
               <li>Artículos falsificados o que induzcan a engaño sobre su origen o autenticidad.</li>
@@ -156,10 +156,10 @@ export default function Terminos() {
               6. Ley aplicable
             </h2>
             <p>
-              Estos Términos y Condiciones se rigen por las leyes de la{" "}
-              <strong>República Bolivariana de Venezuela</strong>. Cualquier controversia derivada del
+              Estos Términos y Condiciones se rigen por la{" "}
+              <strong>jurisdicción del usuario</strong> según la legislación local aplicable. Cualquier controversia derivada del
               uso de la plataforma que no pueda resolverse de forma amistosa será sometida a la
-              jurisdicción de los tribunales competentes de Venezuela.
+              jurisdicción de los tribunales competentes según corresponda a cada caso.
             </p>
           </section>
 

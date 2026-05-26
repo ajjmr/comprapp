@@ -2,7 +2,7 @@ export default function HowItWorks() {
   const steps = [
     { number: "1", emoji: "📱", title: "Descarga la app", description: "Instala COMPRAPP en tu Android o accede desde el Dashboard Web en segundos." },
     { number: "2", emoji: "🏪", title: "Registra tu tienda", description: "Crea tu perfil de vendedor, sube tu catálogo y configura tus métodos de pago." },
-    { number: "3", emoji: "💰", title: "Empieza a vender", description: "Recibe pedidos, gestiona tu inventario y cobra en Bs o USD a tasa BCV." },
+    { number: "3", emoji: "💰", title: "Empieza a vender", description: "Recibe pedidos, gestiona tu inventario y cobra en la moneda que prefieras." },
   ];
 
   return (

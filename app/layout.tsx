@@ -15,16 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Comprapp | Escala tu negocio sin fronteras",
+  title: "Comprapp | Tu comercio local, digital",
   description:
-    "El ecosistema de marketplace diseñado para economías dinámicas. Gestiona stock, sincroniza divisas en tiempo real y recibe pagos globales.",
+    "Gestiona tu tienda local, recibe pedidos y conecta con tus clientes desde cualquier dispositivo.",
   keywords: [
     "marketplace",
     "comprapp",
     "comercio local",
-    "Venezuela",
-    "BCV",
-    "tasa",
+    "tienda digital",
+    "gestión de inventario",
+    "pedidos online",
     "Android",
     "tienda online",
     "pos",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Comprapp | Escala tu negocio sin fronteras",
+    title: "Comprapp | Tu comercio local, digital",
     description:
-      "Gestiona stock, sincroniza divisas en tiempo real y recibe pagos globales en iPhone, Android o PC.",
+      "Gestiona tu tienda local, recibe pedidos y conecta con tus clientes desde cualquier dispositivo.",
     url: "https://comprapp.net",
     siteName: "Comprapp",
     images: [
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Comprapp | Escala tu negocio sin fronteras",
+    title: "Comprapp | Tu comercio local, digital",
     description:
-      "Gestiona stock, sincroniza divisas en tiempo real y recibe pagos globales.",
+      "Gestiona tu tienda local, recibe pedidos y conecta con tus clientes desde cualquier dispositivo.",
     images: ["/og-image.png"],
   },
 };
