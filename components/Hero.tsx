@@ -224,11 +224,11 @@ export default function Hero() {
           </div>
 
           {/* ── PANTALLA PC / DASHBOARD ── */}
-          <div className="absolute left-[10%] right-[10%] top-0 bottom-16 z-10 cursor-pointer
+          <div className="absolute left-[5%] right-[5%] top-0 bottom-16 z-10 cursor-pointer
             transition-all duration-500 ease-out
             group-hover/scene:scale-[1.03] group-hover/scene:z-30
             hover:!scale-[1.05] hover:!z-50">
-            <div className="bg-slate-900 rounded-2xl p-[3px] shadow-2xl h-full flex flex-col">
+            <div className="bg-slate-900 rounded-2xl p-[3px] shadow-2xl flex flex-col">
               <div className="bg-slate-800 rounded-t-xl px-4 py-2 flex items-center gap-2 justify-between">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 bg-red-400 rounded-full" />
@@ -245,12 +245,12 @@ export default function Hero() {
                 </div>
                 <div className="w-6" />
               </div>
-              <div className="flex-1 relative overflow-hidden rounded-b-xl">
+              <div className="relative overflow-hidden rounded-b-xl aspect-[16/10]">
                 <Image
                   src="/screenshot-dashboard.png"
                   alt="Dashboard web"
                   fill
-                  sizes="80vw"
+                  sizes="90vw"
                   className="object-cover object-top"
                 />
               </div>
@@ -270,13 +270,13 @@ export default function Hero() {
               <div className="absolute -right-[3px] top-[20%] w-[3px] h-10 bg-slate-700 rounded-r-full" />
               <div className="absolute -top-[3px] right-[25%] h-[3px] w-8 bg-slate-700 rounded-t-full" />
 
-              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[9/19] bg-white">
+              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[3/4]">
                 <Image
                   src="/screenshot-mobile-seller.png"
                   alt="Vendedor POS"
                   fill
                   sizes="50vw"
-                  className="object-contain"
+                  className="object-cover object-top"
                 />
               </div>
             </div>
