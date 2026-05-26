@@ -162,6 +162,44 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
             {/* Footer note */}
             <div className="px-6 pb-5 text-center">
               <p className="text-xs text-slate-400">Android 8.0+ requerido para la app móvil</p>
+              <p className="text-xs text-slate-500 mt-3 font-medium">
+                Síguenos para ser el primero en saber cuando lancemos 🎉
+              </p>
+              <div className="flex justify-center gap-3 mt-2">
+                <a
+                  href="https://www.instagram.com/somoscomprapp?igsh=aWhzcWkyYjZ5NWRs&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-pink-50 rounded-full text-xs font-semibold text-pink-600 hover:bg-pink-100 transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 flex-shrink-0" fill="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="ig-modal-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#f09433" />
+                        <stop offset="25%" stopColor="#e6683c" />
+                        <stop offset="50%" stopColor="#dc2743" />
+                        <stop offset="75%" stopColor="#cc2366" />
+                        <stop offset="100%" stopColor="#bc1888" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-modal-grad)" strokeWidth="2" />
+                    <circle cx="12" cy="12" r="4" stroke="url(#ig-modal-grad)" strokeWidth="2" />
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="url(#ig-modal-grad)" />
+                  </svg>
+                  Instagram
+                </a>
+                <a
+                  href="https://www.facebook.com/share/18n9EkSRFr/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 rounded-full text-xs font-semibold text-blue-600 hover:bg-blue-100 transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 flex-shrink-0" fill="#1877F2" aria-hidden="true">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  Facebook
+                </a>
+              </div>
             </div>
           </motion.div>
         </motion.div>
