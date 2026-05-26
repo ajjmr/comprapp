@@ -38,6 +38,16 @@ export default function Hero() {
       id="comenzar"
       className="container mx-auto px-6 py-16 md:py-32 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 relative z-10"
     >
+      <style>{`
+        @keyframes scrollMobile {
+          0%   { transform: translateY(0%); }
+          100% { transform: translateY(-50%); }
+        }
+        @keyframes scrollDashboard {
+          0%   { transform: translateY(0%); }
+          100% { transform: translateY(-50%); }
+        }
+      `}</style>
       {/* BLOQUE IZQUIERDO */}
       <div className="flex-1 space-y-6 text-center lg:text-left w-full">
 
@@ -183,14 +193,18 @@ export default function Hero() {
               <div className="absolute -left-[3px] top-[22%] w-[3px] h-6 bg-slate-700 rounded-l-full" />
               <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
 
-              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] bg-white">
-                <Image
-                  src="/screenshot-mobile-client.png"
-                  alt="App cliente"
-                  fill
-                  sizes="144px"
-                  className="object-contain"
-                />
+              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] group/scroll">
+                <div
+                  className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
+                  style={{ animation: "scrollMobile 8s linear infinite" }}
+                >
+                  <div className="relative h-1/2 w-full">
+                    <Image src="/screenshot-mobile-client.png" alt="App cliente" fill sizes="144px" className="object-cover object-top" />
+                  </div>
+                  <div className="relative h-1/2 w-full" aria-hidden="true">
+                    <Image src="/screenshot-mobile-client.png" alt="" fill sizes="144px" className="object-cover object-top" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -211,14 +225,18 @@ export default function Hero() {
               <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
               <div className="absolute -left-[3px] top-[46%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
 
-              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] bg-white">
-                <Image
-                  src="/screenshot-mobile-client.png"
-                  alt="App cliente"
-                  fill
-                  sizes="(min-width: 1024px) 38vw, 144px"
-                  className="object-contain"
-                />
+              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] group/scroll">
+                <div
+                  className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
+                  style={{ animation: "scrollMobile 8s linear infinite" }}
+                >
+                  <div className="relative h-1/2 w-full">
+                    <Image src="/screenshot-mobile-client.png" alt="App cliente" fill sizes="(min-width: 1024px) 38vw, 144px" className="object-cover object-top" />
+                  </div>
+                  <div className="relative h-1/2 w-full" aria-hidden="true">
+                    <Image src="/screenshot-mobile-client.png" alt="" fill sizes="(min-width: 1024px) 38vw, 144px" className="object-cover object-top" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -245,14 +263,18 @@ export default function Hero() {
                 </div>
                 <div className="w-6" />
               </div>
-              <div className="relative overflow-hidden rounded-b-xl aspect-[16/10]">
-                <Image
-                  src="/screenshot-dashboard.png"
-                  alt="Dashboard web"
-                  fill
-                  sizes="90vw"
-                  className="object-cover object-top"
-                />
+              <div className="relative overflow-hidden rounded-b-xl aspect-[16/10] group/scroll">
+                <div
+                  className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
+                  style={{ animation: "scrollDashboard 10s linear infinite" }}
+                >
+                  <div className="relative h-1/2 w-full">
+                    <Image src="/screenshot-dashboard.png" alt="Dashboard web" fill sizes="90vw" className="object-cover object-top" />
+                  </div>
+                  <div className="relative h-1/2 w-full" aria-hidden="true">
+                    <Image src="/screenshot-dashboard.png" alt="" fill sizes="90vw" className="object-cover object-top" />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex justify-center mt-1">
@@ -270,14 +292,18 @@ export default function Hero() {
               <div className="absolute -right-[3px] top-[20%] w-[3px] h-10 bg-slate-700 rounded-r-full" />
               <div className="absolute -top-[3px] right-[25%] h-[3px] w-8 bg-slate-700 rounded-t-full" />
 
-              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[3/4]">
-                <Image
-                  src="/screenshot-mobile-seller.png"
-                  alt="Vendedor POS"
-                  fill
-                  sizes="50vw"
-                  className="object-cover object-top"
-                />
+              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[3/4] group/scroll">
+                <div
+                  className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
+                  style={{ animation: "scrollMobile 8s linear infinite" }}
+                >
+                  <div className="relative h-1/2 w-full">
+                    <Image src="/screenshot-mobile-seller.png" alt="Vendedor POS" fill sizes="50vw" className="object-cover object-top" />
+                  </div>
+                  <div className="relative h-1/2 w-full" aria-hidden="true">
+                    <Image src="/screenshot-mobile-seller.png" alt="" fill sizes="50vw" className="object-cover object-top" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
