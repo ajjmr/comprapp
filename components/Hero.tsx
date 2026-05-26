@@ -183,40 +183,14 @@ export default function Hero() {
               <div className="absolute -left-[3px] top-[22%] w-[3px] h-6 bg-slate-700 rounded-l-full" />
               <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
 
-              <div className="bg-gradient-to-b from-slate-50 to-white rounded-[2.3rem] overflow-hidden aspect-[9/19.5] flex flex-col">
-                <div className="flex justify-center pt-3 pb-1">
-                  <div className="w-20 h-5 bg-slate-900 rounded-full flex items-center justify-center gap-1.5">
-                    <div className="w-1.5 h-1.5 bg-slate-600 rounded-full" />
-                    <div className="w-2.5 h-2.5 bg-slate-700 rounded-full" />
-                  </div>
-                </div>
-                <div className="flex-1 flex flex-col items-center justify-center px-3 pb-3 text-center">
-                  <div className="relative w-10 h-10 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-2 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
-                    <div className="relative w-full h-full rounded-[12px] overflow-hidden bg-white">
-                      <Image
-                        src="/logo.png"
-                        alt="App"
-                        fill
-                        sizes="40px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  <p className="text-slate-900 font-black text-[9px] tracking-widest uppercase mb-1">
-                    Comprapp
-                  </p>
-                  <p className="text-slate-400 text-[7px] leading-tight max-w-[70px]">
-                    Android &amp; PC
-                  </p>
-                  <div className="mt-3 w-full space-y-1.5">
-                    <div className="h-1.5 bg-slate-100 rounded-full w-full" />
-                    <div className="h-1.5 bg-purple-100 rounded-full w-4/5 mx-auto" />
-                    <div className="h-1.5 bg-cyan-100 rounded-full w-3/5 mx-auto" />
-                  </div>
-                </div>
-                <div className="flex justify-center pb-2">
-                  <div className="w-14 h-1 bg-slate-300 rounded-full" />
-                </div>
+              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5]">
+                <Image
+                  src="/screenshot-mobile-client.png"
+                  alt="App cliente"
+                  fill
+                  sizes="144px"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
@@ -237,40 +211,14 @@ export default function Hero() {
               <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
               <div className="absolute -left-[3px] top-[46%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
 
-              <div className="bg-gradient-to-b from-slate-50 to-white rounded-[2.3rem] overflow-hidden aspect-[9/19.5] flex flex-col">
-                <div className="flex justify-center pt-3 pb-1">
-                  <div className="w-20 h-5 bg-slate-900 rounded-full flex items-center justify-center gap-1.5">
-                    <div className="w-1.5 h-1.5 bg-slate-600 rounded-full" />
-                    <div className="w-2.5 h-2.5 bg-slate-700 rounded-full" />
-                  </div>
-                </div>
-                <div className="flex-1 flex flex-col items-center justify-center px-4 pb-4 text-center">
-                  <div className="relative w-12 h-12 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
-                    <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-white">
-                      <Image
-                        src="/logo.png"
-                        alt="App"
-                        fill
-                        sizes="48px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  <p className="text-slate-900 font-black text-[10px] tracking-widest uppercase mb-1">
-                    Android App
-                  </p>
-                  <p className="text-slate-400 text-[8px] leading-tight max-w-[80px]">
-                    Clientes y vendedores
-                  </p>
-                  <div className="mt-4 w-full space-y-1.5">
-                    <div className="h-1.5 bg-slate-100 rounded-full w-full" />
-                    <div className="h-1.5 bg-purple-100 rounded-full w-4/5 mx-auto" />
-                    <div className="h-1.5 bg-slate-100 rounded-full w-3/5 mx-auto" />
-                  </div>
-                </div>
-                <div className="flex justify-center pb-2">
-                  <div className="w-16 h-1 bg-slate-300 rounded-full" />
-                </div>
+              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5]">
+                <Image
+                  src="/screenshot-mobile-client.png"
+                  alt="App cliente"
+                  fill
+                  sizes="(min-width: 1024px) 38vw, 144px"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
@@ -297,38 +245,14 @@ export default function Hero() {
                 </div>
                 <div className="w-6" />
               </div>
-              <div className="flex-1 bg-gradient-to-br from-slate-50 to-white rounded-b-xl p-4 flex flex-col items-center justify-center text-center">
-                <div className="relative w-14 h-14 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
-                  <div className="relative w-full h-full rounded-[13px] overflow-hidden bg-white">
-                    <Image
-                      src="/logo.png"
-                      alt="Dashboard"
-                      fill
-                      sizes="56px"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <p className="text-slate-900 font-extrabold text-xs tracking-widest uppercase mb-1">
-                  Dashboard Web
-                </p>
-                <p className="text-slate-400 text-[9px] max-w-[180px] leading-tight">
-                  Inventario, pedidos y reportes en tiempo real
-                </p>
-                <div className="mt-5 w-full grid grid-cols-3 gap-2">
-                  <div className="bg-purple-50 border border-purple-100 rounded-lg p-2">
-                    <div className="h-1 bg-purple-200 rounded w-full mb-1" />
-                    <div className="h-1 bg-purple-100 rounded w-2/3" />
-                  </div>
-                  <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-2">
-                    <div className="h-1 bg-cyan-200 rounded w-full mb-1" />
-                    <div className="h-1 bg-cyan-100 rounded w-3/4" />
-                  </div>
-                  <div className="bg-slate-50 border border-slate-100 rounded-lg p-2">
-                    <div className="h-1 bg-slate-200 rounded w-full mb-1" />
-                    <div className="h-1 bg-slate-100 rounded w-1/2" />
-                  </div>
-                </div>
+              <div className="flex-1 relative overflow-hidden rounded-b-xl">
+                <Image
+                  src="/screenshot-dashboard.png"
+                  alt="Dashboard web"
+                  fill
+                  sizes="80vw"
+                  className="object-cover object-top"
+                />
               </div>
             </div>
             <div className="flex justify-center mt-1">
@@ -346,37 +270,14 @@ export default function Hero() {
               <div className="absolute -right-[3px] top-[20%] w-[3px] h-10 bg-slate-700 rounded-r-full" />
               <div className="absolute -top-[3px] right-[25%] h-[3px] w-8 bg-slate-700 rounded-t-full" />
 
-              <div className="bg-gradient-to-b from-slate-50 to-white rounded-[1.6rem] overflow-hidden aspect-[3/4] flex flex-col">
-                <div className="flex justify-center pt-2.5 pb-1">
-                  <div className="w-2 h-2 bg-slate-800 rounded-full" />
-                </div>
-                <div className="flex-1 flex flex-col items-center justify-center px-4 pb-4 text-center">
-                  <div className="relative w-11 h-11 overflow-hidden rounded-2xl border border-slate-100 shadow-lg mb-3 bg-gradient-to-br from-purple-600 to-cyan-500 p-[1.5px]">
-                    <div className="relative w-full h-full rounded-[13px] overflow-hidden bg-white">
-                      <Image
-                        src="/logo.png"
-                        alt="POS"
-                        fill
-                        sizes="44px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  <p className="text-slate-900 font-black text-[9px] tracking-widest uppercase mb-1">
-                    Vendedor POS
-                  </p>
-                  <p className="text-slate-400 text-[8px] leading-tight max-w-[90px]">
-                    Pedidos en tiempo real
-                  </p>
-                  <div className="mt-4 w-full space-y-1.5">
-                    <div className="h-1.5 bg-slate-100 rounded-full w-full" />
-                    <div className="h-1.5 bg-cyan-100 rounded-full w-4/5 mx-auto" />
-                    <div className="h-1.5 bg-slate-100 rounded-full w-2/3 mx-auto" />
-                  </div>
-                </div>
-                <div className="flex justify-center pb-2">
-                  <div className="w-12 h-1 bg-slate-300 rounded-full" />
-                </div>
+              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[3/4]">
+                <Image
+                  src="/screenshot-mobile-seller.png"
+                  alt="Vendedor POS"
+                  fill
+                  sizes="50vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
