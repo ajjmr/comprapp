@@ -70,7 +70,7 @@ export default function Terminos() {
               divisas en tiempo real y realizar o recibir pagos de forma digital.
             </p>
             <p className="mt-3">
-              El servicio está disponible para dispositivos Android, iOS y PC, y está diseñado
+              El servicio está disponible para dispositivos Android y PC, y está diseñado
               especialmente para economías dinámicas donde la agilidad y la confianza son clave.
             </p>
           </section>

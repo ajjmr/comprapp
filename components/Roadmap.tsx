@@ -33,9 +33,9 @@ export default function Roadmap() {
       description: "Funcionalidades avanzadas para escalar el ecosistema.",
       items: [
         "Catálogo compartible en redes sociales.",
-        "Panel de analítica avanzada para vendedores.",
+        "Panel de analítica avanzada.",
         "Grupos y categorías de mercado.",
-        "Historial de ventas avanzado.",
+        "App para iOS.",
       ],
       status: "upcoming",
     },
