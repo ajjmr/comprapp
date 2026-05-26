@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Comprapp | Tu comercio local, digital",
+  title: "COMPRAPP | Tu comercio local, digital",
   description:
     "Gestiona tu tienda local, recibe pedidos y conecta con tus clientes desde cualquier dispositivo.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Comprapp | Tu comercio local, digital",
+    title: "COMPRAPP | Tu comercio local, digital",
     description:
       "Gestiona tu tienda local, recibe pedidos y conecta con tus clientes desde cualquier dispositivo.",
     url: "https://comprapp.net",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       {
         url: "/og-image.png",
         width: 1200,
-        height: 630,
+        height: 800,
         alt: "Comprapp Consola Web Enterprise",
       },
     ],
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Comprapp | Tu comercio local, digital",
+    title: "COMPRAPP | Tu comercio local, digital",
     description:
       "Gestiona tu tienda local, recibe pedidos y conecta con tus clientes desde cualquier dispositivo.",
     images: ["/og-image.png"],
@@ -71,7 +71,10 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+  {children}
+  <Analytics />
+</body>
     </html>
   );
 }
