@@ -183,13 +183,13 @@ export default function Hero() {
               <div className="absolute -left-[3px] top-[22%] w-[3px] h-6 bg-slate-700 rounded-l-full" />
               <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
 
-              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5]">
+              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] bg-white">
                 <Image
                   src="/screenshot-mobile-client.png"
                   alt="App cliente"
                   fill
                   sizes="144px"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -211,13 +211,13 @@ export default function Hero() {
               <div className="absolute -left-[3px] top-[32%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
               <div className="absolute -left-[3px] top-[46%] w-[3px] h-10 bg-slate-700 rounded-l-full" />
 
-              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5]">
+              <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] bg-white">
                 <Image
                   src="/screenshot-mobile-client.png"
                   alt="App cliente"
                   fill
                   sizes="(min-width: 1024px) 38vw, 144px"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -270,13 +270,13 @@ export default function Hero() {
               <div className="absolute -right-[3px] top-[20%] w-[3px] h-10 bg-slate-700 rounded-r-full" />
               <div className="absolute -top-[3px] right-[25%] h-[3px] w-8 bg-slate-700 rounded-t-full" />
 
-              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[3/4]">
+              <div className="relative rounded-[1.6rem] overflow-hidden aspect-[9/19] bg-white">
                 <Image
                   src="/screenshot-mobile-seller.png"
                   alt="Vendedor POS"
                   fill
                   sizes="50vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
