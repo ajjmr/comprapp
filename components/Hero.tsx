@@ -44,8 +44,8 @@ export default function Hero() {
           100% { transform: translateY(-50%); }
         }
         @keyframes scrollDashboard {
-          0%   { transform: translateY(0%); }
-          100% { transform: translateY(-50%); }
+          0%   { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
         }
       `}</style>
       {/* BLOQUE IZQUIERDO */}
@@ -196,7 +196,7 @@ export default function Hero() {
               <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] group/scroll">
                 <div
                   className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
-                  style={{ animation: "scrollMobile 8s linear infinite" }}
+                  style={{ animation: "scrollMobile 20s linear infinite" }}
                 >
                   <div className="relative h-1/2 w-full">
                     <Image src="/screenshot-mobile-client.png" alt="App cliente" fill sizes="144px" className="object-cover object-top" />
@@ -228,7 +228,7 @@ export default function Hero() {
               <div className="relative rounded-[2.3rem] overflow-hidden aspect-[9/19.5] group/scroll">
                 <div
                   className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
-                  style={{ animation: "scrollMobile 8s linear infinite" }}
+                  style={{ animation: "scrollMobile 20s linear infinite" }}
                 >
                   <div className="relative h-1/2 w-full">
                     <Image src="/screenshot-mobile-client.png" alt="App cliente" fill sizes="(min-width: 1024px) 38vw, 144px" className="object-cover object-top" />
@@ -265,13 +265,13 @@ export default function Hero() {
               </div>
               <div className="relative overflow-hidden rounded-b-xl aspect-[16/10] group/scroll">
                 <div
-                  className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
-                  style={{ animation: "scrollDashboard 10s linear infinite" }}
+                  className="absolute inset-y-0 left-0 flex flex-row w-[200%] group-hover/scroll:[animation-play-state:paused]"
+                  style={{ animation: "scrollDashboard 25s linear infinite" }}
                 >
-                  <div className="relative h-1/2 w-full">
+                  <div className="relative h-full w-1/2">
                     <Image src="/screenshot-dashboard.png" alt="Dashboard web" fill sizes="90vw" className="object-cover object-top" />
                   </div>
-                  <div className="relative h-1/2 w-full" aria-hidden="true">
+                  <div className="relative h-full w-1/2" aria-hidden="true">
                     <Image src="/screenshot-dashboard.png" alt="" fill sizes="90vw" className="object-cover object-top" />
                   </div>
                 </div>
@@ -295,7 +295,7 @@ export default function Hero() {
               <div className="relative rounded-[1.6rem] overflow-hidden aspect-[3/4] group/scroll">
                 <div
                   className="absolute inset-x-0 top-0 h-[200%] group-hover/scroll:[animation-play-state:paused]"
-                  style={{ animation: "scrollMobile 8s linear infinite" }}
+                  style={{ animation: "scrollMobile 20s linear infinite" }}
                 >
                   <div className="relative h-1/2 w-full">
                     <Image src="/screenshot-mobile-seller.png" alt="Vendedor POS" fill sizes="50vw" className="object-cover object-top" />
