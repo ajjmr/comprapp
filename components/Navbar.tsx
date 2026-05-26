@@ -18,12 +18,12 @@ export default function Navbar() {
           className="flex items-center gap-3 group cursor-pointer"
         >
           <div className="relative w-9 h-9 overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-gradient-to-br from-purple-600 to-cyan-500 p-[1px]">
-            <div className="relative w-full h-full rounded-[15px] overflow-hidden bg-white">
+            <div className="relative w-full h-full rounded-[11px] overflow-hidden bg-white">
               <Image
                 src="/logo.png"
                 alt="Logo Comprapp"
                 fill
-                sizes="10px"
+                sizes="40px"
                 className="object-cover"
                 priority
               />
