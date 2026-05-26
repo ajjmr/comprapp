@@ -134,39 +134,33 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
                 </span>
               </div>
 
-              {/* C) Android APK - active */}
-              <a
-                href="https://comprapp-da702.web.app/downloads/comprapp.apk"
-                download
-                onClick={onClose}
-                className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white cursor-pointer hover:opacity-90 transition-opacity"
-              >
-                <span className="flex-shrink-0">
-                  <IconAndroid />
-                </span>
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm">Android APK</p>
-                  <p className="text-xs text-white/80 truncate">Descarga directa · v1.2.0</p>
-                </div>
-                <ChevronRight />
-              </a>
+              {/* C) Android APK - pausado */}
+<div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
+  <span className="flex-shrink-0 text-green-500">
+    <IconAndroid />
+  </span>
+  <div className="flex-1 min-w-0">
+    <p className="font-bold text-sm text-slate-600">Android APK</p>
+    <p className="text-xs text-slate-400">Disponible muy pronto</p>
+  </div>
+  <span className="text-[11px] font-semibold bg-purple-100 text-purple-600 px-2.5 py-1 rounded-full flex-shrink-0 whitespace-nowrap">
+    Muy pronto
+  </span>
+</div>
 
-              {/* D) Dashboard Web - active */}
-              <a
-                href="https://comprapp-da702.web.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white cursor-pointer hover:opacity-90 transition-opacity"
-              >
-                <span className="flex-shrink-0">
-                  <IconGlobe />
-                </span>
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm">Dashboard Web</p>
-                  <p className="text-xs text-white/80 truncate">Para vendedores · Abre en el navegador</p>
-                </div>
-                <ChevronRight />
-              </a>
+              {/* D) Dashboard Web - pausado */}
+<div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
+  <span className="flex-shrink-0 text-blue-500">
+    <IconGlobe />
+  </span>
+  <div className="flex-1 min-w-0">
+    <p className="font-bold text-sm text-slate-600">Dashboard Web</p>
+    <p className="text-xs text-slate-400">Disponible muy pronto</p>
+  </div>
+  <span className="text-[11px] font-semibold bg-purple-100 text-purple-600 px-2.5 py-1 rounded-full flex-shrink-0 whitespace-nowrap">
+    Muy pronto
+  </span>
+</div>
 
               {/* E) Windows - disabled */}
               <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
