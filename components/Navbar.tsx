@@ -23,7 +23,7 @@ export default function Navbar() {
                 src="/logo.png"
                 alt="Logo Comprapp"
                 fill
-                sizes="40px"
+                sizes="30px"
                 className="object-cover"
                 priority
               />
