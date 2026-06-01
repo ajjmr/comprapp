@@ -44,7 +44,7 @@ function useSlideshow(images: string[], intervalMs = 3000) {
         setPrev(current);
         setCurrent((c) => (c + 1) % images.length);
         setTransitioning(false);
-      }, 400);
+      }, 700);
     }, intervalMs);
     return () => clearInterval(timer);
   }, [current, images.length, intervalMs]);
@@ -56,9 +56,9 @@ export default function Hero() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
 
-  const client = useSlideshow(clientScreenshots, 3000);
-  const seller = useSlideshow(sellerScreenshots, 3500);
-  const dashboard = useSlideshow(dashboardScreenshots, 4000);
+  const client = useSlideshow(clientScreenshots, 5000);
+  const seller = useSlideshow(sellerScreenshots, 5500);
+  const dashboard = useSlideshow(dashboardScreenshots, 6000);
 
   useEffect(() => {
     const handler = (e: Event) => {
