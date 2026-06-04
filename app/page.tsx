@@ -5,6 +5,7 @@ import UseCases from '@/components/UseCases';
 import WhyChoose from '@/components/WhyChoose';
 import HowItWorks from '@/components/HowItWorks';
 import Roadmap from '@/components/Roadmap';
+import BetaSection from '@/components/BetaSection';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/FadeIn';
 
@@ -43,6 +44,10 @@ export default function Home() {
 
       <FadeIn>
         <Roadmap />
+      </FadeIn>
+
+      <FadeIn>
+        <BetaSection />
       </FadeIn>
 
       <Footer />
