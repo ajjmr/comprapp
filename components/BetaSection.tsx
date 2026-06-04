@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import emailjs from "@emailjs/browser";
 
 interface FormData {
   nombre: string;
@@ -60,18 +59,6 @@ export default function BetaSection() {
         timestamp: serverTimestamp(),
         status: "pendiente",
       });
-
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          nombre: form.nombre.trim(),
-          gmail: form.gmail.trim().toLowerCase(),
-          ciudad: form.ciudad.trim(),
-          fecha: new Date().toLocaleString("es-VE", { timeZone: "America/Caracas" }),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
 
       setStatus("success");
       setForm({ nombre: "", gmail: "", ciudad: "" });
