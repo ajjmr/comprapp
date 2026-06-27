@@ -156,32 +156,25 @@ export default function Hero() {
           className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6"
         >
           <DownloadButton className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:opacity-90 transition-all text-center flex items-center gap-3">
-            <span className="text-2xl">📱💻</span>
+            <span className="text-2xl">📱</span>
             <div className="text-left">
-              <p className="text-[12px] font-normal opacity-80">Descarga gratis</p>
-              <p className="text-sm font-bold">DESCARGAR</p>
+              <p className="text-[10px] font-normal opacity-80">Descarga gratis</p>
+              <p className="text-sm font-bold">Google Play</p>
             </div>
           </DownloadButton>
 
-          {isInstallable ? (
-            <button
-              onClick={handleInstallClick}
-              className="bg-slate-950 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-slate-800 transition-all text-center flex items-center gap-3"
-            >
-              <span className="text-2xl">💻</span>
-              <div className="text-left">
-                <p className="text-[10px] font-normal opacity-60">Instalar en</p>
-                <p className="text-sm font-bold">PC / Escritorio</p>
-              </div>
-            </button>
-          ) : (
-            <Link
-              href="#funciones"
-              className="bg-white/60 backdrop-blur-sm hover:bg-slate-100/80 text-slate-700 border border-slate-200 font-semibold px-10 py-4 rounded-xl shadow-sm transition-all text-center"
-            >
-              Ver funciones →
-            </Link>
-          )}
+          <Link
+            href="https://app.comprapp.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-slate-950 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:bg-slate-800 transition-all text-center flex items-center gap-3"
+          >
+            <span className="text-2xl">💻</span>
+            <div className="text-left">
+              <p className="text-[10px] font-normal opacity-60">Acceder desde</p>
+              <p className="text-sm font-bold">Web →</p>
+            </div>
+          </Link>
         </motion.div>
 
         <motion.p

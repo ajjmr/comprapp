@@ -121,13 +121,23 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {new Date().getFullYear()} Comprapp Inc. Todos los derechos reservados.</p>
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p>© 2026 JotaSystem. Todos los derechos reservados.</p>
+            <a
+              href="https://www.instagram.com/somoscomprapp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 transition-colors"
+            >
+              @somoscomprapp
+            </a>
+          </div>
           <div className="flex gap-6">
             <a href="/privacidad" className="hover:text-purple-600 transition-colors">
-              Política de privacidad
+              Política de Privacidad
             </a>
             <a href="/terminos" className="hover:text-purple-600 transition-colors">
-              Términos de uso
+              Términos de Servicio
             </a>
           </div>
         </div>

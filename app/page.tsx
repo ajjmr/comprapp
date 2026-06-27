@@ -8,6 +8,8 @@ import Roadmap from '@/components/Roadmap';
 import BetaSection from '@/components/BetaSection';
 import Footer from '@/components/Footer';
 import FadeIn from '@/components/FadeIn';
+import SellersSection from '@/components/SellersSection';
+import BuyersSection from '@/components/BuyersSection';
 
 export default function Home() {
   return (
@@ -32,6 +34,14 @@ export default function Home() {
 
       <FadeIn>
         <UseCases />
+      </FadeIn>
+
+      <FadeIn>
+        <SellersSection />
+      </FadeIn>
+
+      <FadeIn>
+        <BuyersSection />
       </FadeIn>
 
       <FadeIn>

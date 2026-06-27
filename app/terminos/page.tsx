@@ -3,23 +3,23 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones | Comprapp",
+  title: "Términos de Servicio | COMPRAPP",
   description:
-    "Lee los términos y condiciones de uso de la plataforma Comprapp.",
+    "Lee los Términos de Servicio de COMPRAPP desarrollado por JotaSystem. Marketplace local venezolano.",
 };
 
 export default function Terminos() {
   return (
-    <div className="bg-slate-50 text-slate-800 min-h-screen font-sans flex flex-col">
+    <div className="bg-white text-slate-800 min-h-screen font-sans flex flex-col">
       {/* Header */}
-      <header className="bg-white/70 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50 shadow-sm shadow-slate-100/50">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-gradient-to-br from-purple-600 to-cyan-500 p-[1px]">
-              <div className="relative w-full h-full rounded-[11px] overflow-hidden bg-white">
+      <header className="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between max-w-4xl">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative w-9 h-9 overflow-hidden rounded-xl bg-gradient-to-br from-purple-600 to-cyan-400 p-[2px]">
+              <div className="relative w-full h-full rounded-[10px] overflow-hidden bg-white">
                 <Image
                   src="/logo.png"
-                  alt="Logo Comprapp"
+                  alt="Logo COMPRAPP"
                   fill
                   sizes="40px"
                   className="object-cover"
@@ -29,14 +29,14 @@ export default function Terminos() {
             </div>
             <span className="text-xl font-black tracking-wider text-slate-900 uppercase">
               COMPR
-              <span className="bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 to-cyan-400 bg-clip-text text-transparent">
                 APP
               </span>
             </span>
           </Link>
           <Link
             href="/"
-            className="text-sm font-bold text-slate-600 hover:text-cyan-600 transition-colors flex items-center gap-1.5"
+            className="text-sm font-semibold text-slate-500 hover:text-purple-600 transition-colors"
           >
             ← Volver al inicio
           </Link>
@@ -44,168 +44,258 @@ export default function Terminos() {
       </header>
 
       {/* Content */}
-      <main className="flex-1 container mx-auto px-6 py-16 max-w-3xl">
-        <div className="mb-10">
+      <main className="flex-1 container mx-auto px-6 py-14 max-w-4xl">
+        {/* Título */}
+        <div className="mb-10 border-b border-slate-100 pb-8">
           <span className="text-xs font-bold uppercase tracking-widest text-purple-600">
             Legal
           </span>
-          <h1 className="text-4xl font-extrabold text-slate-900 mt-2 mb-3">
-            Términos y Condiciones
+          <h1 className="text-4xl font-extrabold text-slate-900 mt-2 mb-2">
+            Términos de Servicio
           </h1>
-          <p className="text-slate-500 text-sm">
-            Última actualización: mayo 2026
+          <p className="text-slate-400 text-sm">
+            JotaSystem · Última actualización: junio 2026
           </p>
         </div>
 
-        <div className="prose prose-slate max-w-none space-y-10 text-slate-700 leading-relaxed">
+        <div className="space-y-10 text-slate-700 leading-relaxed">
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
               1. Descripción del servicio
             </h2>
             <p>
-              Comprapp es una plataforma de <strong>marketplace local</strong> que conecta a
-              compradores y vendedores dentro de una misma comunidad o zona geográfica. A través de
-              la aplicación, los usuarios pueden publicar productos, gestionar inventario, sincronizar
-              divisas en tiempo real y realizar o recibir pagos de forma digital.
+              COMPRAPP es una plataforma de <strong>marketplace local</strong> desarrollada por{" "}
+              <strong>JotaSystem</strong> que conecta a compradores y vendedores dentro de una
+              misma comunidad o zona geográfica, diseñada especialmente para el contexto
+              económico venezolano.
             </p>
             <p className="mt-3">
-              El servicio está disponible para dispositivos Android y PC, y está diseñado
-              especialmente para economías dinámicas donde la agilidad y la confianza son clave.
+              La plataforma permite publicar productos, gestionar inventario, consultar tasas
+              de cambio BCV en tiempo real y coordinar transacciones en bolívares (Bs.) y
+              dólares americanos (USD). <strong>COMPRAPP no procesa ni intermedia pagos directamente.</strong>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              2. Responsabilidad del vendedor
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              2. Registro y cuentas de usuario
             </h2>
             <p>
-              Cada vendedor es el <strong>único responsable</strong> de los productos que publica en
-              la plataforma, incluyendo:
+              Para usar COMPRAPP debes tener <strong>18 años o más</strong>. Si eres menor
+              de edad, necesitas la autorización expresa de tu representante legal, quien
+              asumirá la responsabilidad por el uso de la plataforma.
             </p>
-            <ul className="mt-3 space-y-2 list-disc list-inside text-slate-600">
-              <li>La veracidad y exactitud de la descripción, precio e imágenes del producto.</li>
-              <li>La disponibilidad real del producto al momento de recibir un pedido.</li>
-              <li>El cumplimiento de la entrega o acuerdo pactado con el comprador.</li>
-              <li>La calidad y estado del producto al momento de la venta.</li>
+            <p className="mt-3">Al registrarte te comprometes a:</p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Proporcionar información veraz, actual y completa.</li>
+              <li>Mantener la confidencialidad de tus credenciales de acceso.</li>
+              <li>Notificarnos de inmediato ante cualquier uso no autorizado de tu cuenta.</li>
+              <li>No crear cuentas múltiples con propósitos fraudulentos.</li>
             </ul>
             <p className="mt-3">
-              Comprapp no valida ni garantiza la calidad de los productos publicados por vendedores
-              terceros.
+              COMPRAPP no es responsable por daños derivados del uso no autorizado de tu
+              cuenta si no tomaste las medidas de seguridad necesarias.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              3. Comprapp no es parte de las transacciones
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              3. Responsabilidades del vendedor
             </h2>
-            <p>
-              Comprapp actúa exclusivamente como <strong>intermediario tecnológico</strong> entre
-              compradores y vendedores. No somos parte de ninguna transacción comercial que se realice
-              a través de la plataforma.
-            </p>
-            <p className="mt-3">
-              En consecuencia, Comprapp no asume responsabilidad por disputas, incumplimientos,
-              fraudes, daños o pérdidas derivadas de las transacciones entre usuarios. Cualquier
-              conflicto entre comprador y vendedor debe resolverse directamente entre las partes.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              4. Productos prohibidos
-            </h2>
-            <p>
-              Está estrictamente prohibido publicar, ofrecer o negociar a través de Comprapp cualquier
-              producto o servicio que sea:
-            </p>
-            <ul className="mt-3 space-y-2 list-disc list-inside text-slate-600">
-              <li>Ilegal conforme a la legislación local o internacional aplicable.</li>
-              <li>Sustancias controladas, armas o artículos de uso militar sin autorización.</li>
-              <li>Material que vulnere derechos de autor, marcas registradas u otros derechos de propiedad intelectual.</li>
-              <li>Artículos falsificados o que induzcan a engaño sobre su origen o autenticidad.</li>
+            <p>Como vendedor en COMPRAPP eres el único responsable de:</p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>La veracidad, exactitud y actualización de tus productos, precios e inventario.</li>
+              <li>Cumplir con los pedidos que aceptes dentro del plazo acordado.</li>
+              <li>Publicar precios honestos en Bs. o USD coherentes con el mercado.</li>
+              <li>Atender las disputas o reclamos de compradores con buena fe.</li>
+              <li>Contar con la verificación de identidad completada (cédula + selfie) para operar.</li>
+              <li>Mantener información de contacto actualizada.</li>
             </ul>
             <p className="mt-3">
-              El incumplimiento de esta cláusula puede derivar en la suspensión inmediata de la cuenta
-              y en la notificación a las autoridades competentes.
+              COMPRAPP no valida ni garantiza la calidad de los productos publicados por
+              vendedores terceros.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              5. Suspensión de cuentas
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              4. Responsabilidades del comprador
+            </h2>
+            <p>Como comprador en COMPRAPP te comprometes a:</p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Realizar el pago acordado con el vendedor una vez confirmado el pedido.</li>
+              <li>No generar pedidos sin intención real de compra.</li>
+              <li>Tratar a los vendedores con respeto y buena fe.</li>
+              <li>Verificar el producto antes de confirmar su recepción cuando sea posible.</li>
+              <li>Reportar cualquier irregularidad a través de los canales disponibles en la app.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              5. Sistema de pagos
             </h2>
             <p>
-              Comprapp se reserva el derecho de <strong>suspender o eliminar</strong> cualquier cuenta
-              de usuario, de forma temporal o permanente, en los siguientes casos:
+              <strong>COMPRAPP NO procesa ni intermedia pagos.</strong> Todos los métodos de
+              pago disponibles (Pago Móvil, Zelle, criptomonedas u otros) son acordados y
+              ejecutados directamente entre comprador y vendedor fuera de la plataforma.
             </p>
-            <ul className="mt-3 space-y-2 list-disc list-inside text-slate-600">
-              <li>Incumplimiento de estos Términos y Condiciones.</li>
-              <li>Publicación de contenido fraudulento, engañoso o inapropiado.</li>
-              <li>Comportamiento abusivo hacia otros usuarios de la plataforma.</li>
-              <li>Uso de la plataforma para actividades ilegales o no autorizadas.</li>
-              <li>Suplantación de identidad u otro tipo de fraude.</li>
+            <p className="mt-3">COMPRAPP no tiene acceso a:</p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Cuentas bancarias o billeteras digitales de los usuarios.</li>
+              <li>Fondos transferidos entre compradores y vendedores.</li>
+              <li>Confirmaciones de pago de entidades bancarias o exchanges.</li>
             </ul>
             <p className="mt-3">
-              En casos graves, la suspensión será inmediata y sin previo aviso.
+              En consecuencia, COMPRAPP no es responsable por disputas de pago, estafas,
+              transferencias incorrectas o pérdidas económicas derivadas de las transacciones
+              entre usuarios. Recomendamos verificar siempre la identidad del vendedor y usar
+              métodos de pago con trazabilidad.
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              6. Ley aplicable
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              6. Sistema de fiado (crédito informal)
             </h2>
             <p>
-              Estos Términos y Condiciones se rigen por la{" "}
-              <strong>jurisdicción del usuario</strong> según la legislación local aplicable. Cualquier controversia derivada del
-              uso de la plataforma que no pueda resolverse de forma amistosa será sometida a la
-              jurisdicción de los tribunales competentes según corresponda a cada caso.
+              COMPRAPP ofrece herramientas para que los vendedores registren créditos
+              informales (<strong>fiado</strong>) con sus compradores habituales. Esta
+              funcionalidad es un registro administrativo y <strong>NO constituye un servicio
+              financiero ni un contrato de crédito regulado</strong>.
             </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              7. Modificaciones
-            </h2>
-            <p>
-              Comprapp se reserva el derecho de modificar estos Términos y Condiciones en cualquier
-              momento. Los cambios serán notificados dentro de la aplicación o por correo electrónico.
-              El uso continuado de la plataforma tras una actualización implica la aceptación de los
-              nuevos términos.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-100">
-              8. Contacto
-            </h2>
-            <p>
-              Para cualquier consulta relacionada con estos términos, puedes contactarnos en:
-            </p>
+            <p className="mt-3">COMPRAPP NO es responsable por:</p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Deudas generadas entre vendedores y compradores a través del sistema de fiado.</li>
+              <li>El cobro o recuperación de créditos otorgados.</li>
+              <li>Disputas derivadas de acuerdos de crédito informal entre usuarios.</li>
+            </ul>
             <p className="mt-3">
+              El fiado es un acuerdo privado y de confianza entre las partes. COMPRAPP
+              solo proporciona la herramienta de registro.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              7. Prohibiciones
+            </h2>
+            <p>Está estrictamente prohibido en COMPRAPP:</p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Publicar o comercializar productos o servicios ilegales conforme a la legislación venezolana o internacional.</li>
+              <li>Realizar fraudes, estafas o cualquier forma de engaño a otros usuarios.</li>
+              <li>Publicar información falsa sobre productos, precios o identidad personal.</li>
+              <li>Suplantar la identidad de otras personas o marcas.</li>
+              <li>Utilizar la plataforma para blanqueo de capitales o actividades ilícitas.</li>
+              <li>Publicar material que vulnere derechos de autor, marcas registradas o propiedad intelectual.</li>
+              <li>Acosar, amenazar o incitar al odio contra otros usuarios.</li>
+              <li>Usar bots, scripts automatizados o medios artificiales para manipular la plataforma.</li>
+            </ul>
+            <p className="mt-3">
+              El incumplimiento puede derivar en suspensión inmediata y notificación a
+              las autoridades competentes de la República Bolivariana de Venezuela.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              8. Suspensión y terminación de cuentas
+            </h2>
+            <p>
+              COMPRAPP se reserva el derecho de suspender o eliminar cuentas, de forma
+              temporal o permanente, ante:
+            </p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Violación de estos Términos de Servicio.</li>
+              <li>Comportamiento fraudulento o abusivo hacia otros usuarios.</li>
+              <li>Publicación de contenido ilegal o inapropiado.</li>
+              <li>Suplantación de identidad.</li>
+              <li>Solicitud expresa de autoridades competentes.</li>
+            </ul>
+            <p className="mt-3">
+              Los usuarios también pueden eliminar su propia cuenta desde la sección
+              de Configuración en cualquier momento.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              9. Limitación de responsabilidad
+            </h2>
+            <p>
+              COMPRAPP proporciona su servicio{" "}
+              <em>&quot;tal cual&quot;</em> y no garantiza la disponibilidad ininterrumpida
+              de la plataforma. En la medida permitida por la ley, JotaSystem no será
+              responsable por:
+            </p>
+            <ul className="mt-2 space-y-1.5 list-disc list-inside text-slate-600">
+              <li>Pérdidas económicas derivadas de transacciones entre usuarios.</li>
+              <li>Daños directos, indirectos o consecuentes derivados del uso de la plataforma.</li>
+              <li>Interrupciones del servicio por causas de fuerza mayor, fallos técnicos o de terceros.</li>
+              <li>Inexactitud de las tasas de cambio mostradas (son orientativas, basadas en BCV).</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              10. Jurisdicción
+            </h2>
+            <p>
+              Estos Términos de Servicio se rigen por las leyes de la{" "}
+              <strong>República Bolivariana de Venezuela</strong>. Cualquier controversia
+              que no pueda resolverse de manera amistosa será sometida a la jurisdicción
+              de los tribunales competentes de Venezuela.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              11. Modificaciones
+            </h2>
+            <p>
+              JotaSystem se reserva el derecho de modificar estos Términos de Servicio
+              en cualquier momento. Los cambios serán notificados dentro de la aplicación.
+              El uso continuado de COMPRAPP tras una actualización implica la aceptación
+              de los nuevos términos.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-purple-700 mb-3">
+              12. Contacto
+            </h2>
+            <p>
+              Para cualquier consulta relacionada con estos Términos de Servicio:
+            </p>
+            <div className="mt-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
+              <p className="font-semibold text-slate-800">JotaSystem</p>
               <a
-                href="mailto:soporte@comprapp.net"
-                className="inline-flex items-center gap-2 text-purple-600 hover:text-cyan-600 font-bold transition-colors text-base"
+                href="mailto:andersonjose@gmail.com"
+                className="text-purple-600 hover:text-cyan-600 font-bold transition-colors"
               >
-                soporte@comprapp.net
+                andersonjose@gmail.com
               </a>
-            </p>
+            </div>
           </section>
 
         </div>
       </main>
 
-      {/* Footer simple */}
-      <footer className="bg-white border-t border-slate-200 py-8">
-        <div className="container mx-auto px-6 max-w-3xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {new Date().getFullYear()} Comprapp Inc. Todos los derechos reservados.</p>
+      {/* Footer */}
+      <footer className="bg-slate-50 border-t border-slate-100 py-8 mt-10">
+        <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© 2026 JotaSystem. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <Link href="/privacidad" className="hover:text-purple-600 transition-colors">
-              Política de privacidad
+            <Link
+              href="/privacidad"
+              className="hover:text-purple-600 transition-colors"
+            >
+              Política de Privacidad
             </Link>
-            <Link href="/terminos" className="text-purple-600 font-semibold">
-              Términos de uso
-            </Link>
+            <span className="text-purple-600 font-semibold">
+              Términos de Servicio
+            </span>
           </div>
         </div>
       </footer>
