@@ -10,6 +10,7 @@ import Footer from '@/components/Footer';
 import FadeIn from '@/components/FadeIn';
 import SellersSection from '@/components/SellersSection';
 import BuyersSection from '@/components/BuyersSection';
+import Stats from '@/components/Stats';
 
 export default function Home() {
   return (
@@ -28,6 +29,8 @@ export default function Home() {
       </FadeIn>
 
       {/* Las demás secciones se animan suavemente al hacer scroll */}
+      <Stats />
+
       <FadeIn>
         <Features />
       </FadeIn>

@@ -1,6 +1,12 @@
+"use client";
+
 import DownloadButton from "@/components/DownloadButton";
+import { useLandingConfig } from "@/lib/hooks/useLandingConfig";
 
 export default function BuyersSection() {
+  const { config } = useLandingConfig();
+  const { title, subtitle, button } = config.buyers;
+
   return (
     <section className="py-24 relative z-10 bg-slate-50 border-t border-slate-100">
       <div className="container mx-auto px-6 max-w-5xl">
@@ -9,8 +15,8 @@ export default function BuyersSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-purple-50 rounded-3xl" />
             <div className="relative p-10 text-center">
               <div className="text-8xl mb-4">🛍️</div>
-              <p className="text-3xl font-extrabold text-slate-900 mb-2">Local</p>
-              <p className="text-slate-500 font-medium">compra en tu zona</p>
+              <p className="text-3xl font-extrabold text-slate-900 mb-2">{config.stats.users}</p>
+              <p className="text-slate-500 font-medium">usuarios activos</p>
               <div className="mt-6 grid grid-cols-2 gap-4 text-left">
                 {[
                   { icon: "📍", label: "Tiendas cercanas" },
@@ -31,10 +37,10 @@ export default function BuyersSection() {
               Para compradores
             </span>
             <h2 className="text-4xl font-extrabold text-slate-950 tracking-tight mt-4 mb-4">
-              ¿Quieres comprar local?
+              {title}
             </h2>
             <p className="text-xl text-slate-600 leading-relaxed mb-8">
-              Encuentra tiendas cerca de ti. Compara precios, pide a domicilio y apoya el comercio de tu comunidad.
+              {subtitle}
             </p>
             <ul className="space-y-3 text-slate-600 mb-10">
               {[
@@ -50,7 +56,7 @@ export default function BuyersSection() {
               ))}
             </ul>
             <DownloadButton className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transition-all">
-              📱 Descargar app →
+              📱 {button} →
             </DownloadButton>
           </div>
         </div>

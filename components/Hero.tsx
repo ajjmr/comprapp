@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DownloadButton from "@/components/DownloadButton";
+import { useLandingConfig } from "@/lib/hooks/useLandingConfig";
 
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
@@ -12,7 +13,7 @@ interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
 }
 
-const clientScreenshots = [
+const BASE_CLIENT_SCREENSHOTS = [
   "/screenshot-mobile-client.png",
   "/screenshot-mobile-client-2.png",
   "/screenshot-mobile-client-3.png",
@@ -20,14 +21,14 @@ const clientScreenshots = [
   "/screenshot-mobile-client-5.png",
 ];
 
-const sellerScreenshots = [
+const BASE_SELLER_SCREENSHOTS = [
   "/screenshot-mobile-seller.png",
   "/screenshot-mobile-seller-2.png",
   "/screenshot-mobile-seller-3.png",
   "/screenshot-mobile-seller-4.png",
 ];
 
-const dashboardScreenshots = [
+const BASE_DASHBOARD_SCREENSHOTS = [
   "/screenshot-dashboard.png",
   "/screenshot-dashboard-2.png",
 ];
@@ -53,8 +54,19 @@ function useSlideshow(images: string[], intervalMs = 3000) {
 }
 
 export default function Hero() {
+  const { config } = useLandingConfig();
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstallable, setIsInstallable] = useState(false);
+
+  const clientScreenshots = config.phones.image1
+    ? [config.phones.image1, ...BASE_CLIENT_SCREENSHOTS]
+    : BASE_CLIENT_SCREENSHOTS;
+  const sellerScreenshots = config.phones.image2
+    ? [config.phones.image2, ...BASE_SELLER_SCREENSHOTS]
+    : BASE_SELLER_SCREENSHOTS;
+  const dashboardScreenshots = config.phones.image3
+    ? [config.phones.image3, ...BASE_DASHBOARD_SCREENSHOTS]
+    : BASE_DASHBOARD_SCREENSHOTS;
 
   const client = useSlideshow(clientScreenshots, 5000);
   const seller = useSlideshow(sellerScreenshots, 5500);
@@ -131,10 +143,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter text-slate-950 leading-[1.05]"
         >
-          Tu mercado local,{" "}
-          <br className="hidden sm:block" />
           <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent drop-shadow-sm">
-            en tu bolsillo
+            {config.hero.title}
           </span>
         </motion.h1>
 
@@ -144,9 +154,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           className="text-base md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
         >
-          Compra y vende en tu zona con precios{" "}
-          <span className="text-slate-900 font-semibold">actualizados en tiempo real</span>.
-          Gestiona tu tienda desde Android o tu PC, con o sin internet.
+          {config.hero.subtitle}
         </motion.p>
 
         <motion.div
@@ -159,7 +167,7 @@ export default function Hero() {
             <span className="text-2xl">📱</span>
             <div className="text-left">
               <p className="text-[10px] font-normal opacity-80">Descarga gratis</p>
-              <p className="text-sm font-bold">Google Play</p>
+              <p className="text-sm font-bold">{config.hero.buttonPlayStore}</p>
             </div>
           </DownloadButton>
 
@@ -172,7 +180,7 @@ export default function Hero() {
             <span className="text-2xl">💻</span>
             <div className="text-left">
               <p className="text-[10px] font-normal opacity-60">Acceder desde</p>
-              <p className="text-sm font-bold">Web →</p>
+              <p className="text-sm font-bold">{config.hero.buttonWeb} →</p>
             </div>
           </Link>
         </motion.div>

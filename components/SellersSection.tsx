@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useLandingConfig } from "@/lib/hooks/useLandingConfig";
 
 export default function SellersSection() {
+  const { config } = useLandingConfig();
+  const { title, subtitle, button } = config.sellers;
+
   return (
     <section className="py-24 relative z-10 bg-white border-t border-slate-100">
       <div className="container mx-auto px-6 max-w-5xl">
@@ -10,10 +16,10 @@ export default function SellersSection() {
               Para vendedores
             </span>
             <h2 className="text-4xl font-extrabold text-slate-950 tracking-tight mt-4 mb-4">
-              ¿Tienes un negocio?
+              {title}
             </h2>
             <p className="text-xl text-slate-600 leading-relaxed mb-8">
-              Gestiona tu tienda desde donde estés. Inventario, pedidos, caja y clientes, todo en un solo lugar.
+              {subtitle}
             </p>
             <ul className="space-y-3 text-slate-600 mb-10">
               {[
@@ -34,14 +40,14 @@ export default function SellersSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transition-all"
             >
-              🏪 Crear mi tienda →
+              🏪 {button} →
             </Link>
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-cyan-50 rounded-3xl" />
             <div className="relative p-10 text-center">
               <div className="text-8xl mb-4">🏪</div>
-              <p className="text-3xl font-extrabold text-slate-900 mb-2">+100</p>
+              <p className="text-3xl font-extrabold text-slate-900 mb-2">{config.stats.stores}</p>
               <p className="text-slate-500 font-medium">tiendas registradas</p>
               <div className="mt-6 grid grid-cols-2 gap-4 text-left">
                 {[
