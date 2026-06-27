@@ -5,7 +5,7 @@ import { signInWithEmailAndPassword, onAuthStateChanged, signOut, User } from "f
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth, db, storage } from "@/lib/firebase";
-import { LandingConfig, DEFAULT_LANDING_CONFIG } from "@/lib/types/landing";
+import { LandingConfig, DEFAULT_LANDING_CONFIG, CmsVersion, CmsFeature } from "@/lib/types/landing";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -18,12 +18,15 @@ const BANNER_COLOR_LABELS: Record<string, string> = {
   red: "Rojo",
   green: "Verde",
 };
+const VERSION_STATUSES = ["done", "current", "upcoming"] as const;
+const VERSION_STATUS_LABELS: Record<string, string> = {
+  done: "✅ Lanzado",
+  current: "🟣 En producción",
+  upcoming: "🔜 Próximamente",
+};
 
-// ── Helpers ───────────────────────────────────────────────
-async function saveSection<K extends keyof LandingConfig>(
-  section: K,
-  data: LandingConfig[K]
-) {
+// ── Firestore helpers ─────────────────────────────────────
+async function saveSection<K extends keyof LandingConfig>(section: K, data: LandingConfig[K]) {
   await setDoc(doc(db, "landing_config", "content"), { [section]: data }, { merge: true });
 }
 
@@ -33,7 +36,7 @@ async function uploadImage(file: File, slot: "image1" | "image2" | "image3"): Pr
   return getDownloadURL(storageRef);
 }
 
-// ── Sub-components ────────────────────────────────────────
+// ── UI primitives ─────────────────────────────────────────
 function SectionCard({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
@@ -71,6 +74,185 @@ function SaveButton({ onClick, saving }: { onClick: () => void; saving: boolean 
     >
       {saving ? "Guardando…" : "Guardar cambios"}
     </button>
+  );
+}
+
+// ── Feature list editor (shared by features & whyChoose) ──
+function FeatureListEditor({
+  items,
+  onChange,
+}: {
+  items: CmsFeature[];
+  onChange: (items: CmsFeature[]) => void;
+}) {
+  const update = (i: number, key: keyof CmsFeature, val: string) => {
+    const next = items.map((it, idx) => (idx === i ? { ...it, [key]: val } : it));
+    onChange(next);
+  };
+  const remove = (i: number) => onChange(items.filter((_, idx) => idx !== i));
+  const add = () => onChange([...items, { icon: "✨", title: "", description: "" }]);
+
+  return (
+    <div className="space-y-3">
+      {items.map((item, i) => (
+        <div key={i} className="border border-slate-100 rounded-xl p-4 space-y-2 bg-slate-50">
+          <div className="flex gap-2 items-start">
+            <input
+              type="text"
+              value={item.icon}
+              onChange={(e) => update(i, "icon", e.target.value)}
+              placeholder="emoji"
+              className="w-14 border border-slate-200 rounded-xl px-3 py-2 text-sm text-center bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+            />
+            <input
+              type="text"
+              value={item.title}
+              onChange={(e) => update(i, "title", e.target.value)}
+              placeholder="Título"
+              className="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+            />
+            <button
+              onClick={() => remove(i)}
+              className="text-red-400 hover:text-red-600 font-bold text-lg leading-none px-2 py-1 transition-colors"
+              aria-label="Eliminar"
+            >
+              ✕
+            </button>
+          </div>
+          <input
+            type="text"
+            value={item.description}
+            onChange={(e) => update(i, "description", e.target.value)}
+            placeholder="Descripción"
+            className="w-full border border-slate-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+          />
+        </div>
+      ))}
+      <button
+        onClick={add}
+        className="w-full border-2 border-dashed border-slate-300 hover:border-purple-400 text-slate-500 hover:text-purple-600 font-semibold py-2.5 rounded-xl text-sm transition-all"
+      >
+        ➕ Agregar feature
+      </button>
+    </div>
+  );
+}
+
+// ── Version editor ────────────────────────────────────────
+function VersionCard({
+  version,
+  onChange,
+  onRemove,
+}: {
+  version: CmsVersion;
+  onChange: (v: CmsVersion) => void;
+  onRemove: () => void;
+}) {
+  const [newFeature, setNewFeature] = useState("");
+
+  const addFeature = () => {
+    if (!newFeature.trim()) return;
+    onChange({ ...version, features: [...version.features, newFeature.trim()] });
+    setNewFeature("");
+  };
+
+  const removeFeature = (i: number) =>
+    onChange({ ...version, features: version.features.filter((_, idx) => idx !== i) });
+
+  return (
+    <div
+      className={`border-2 rounded-2xl p-5 space-y-4 ${
+        version.status === "current"
+          ? "border-purple-300 bg-purple-50/30"
+          : "border-slate-200 bg-white"
+      }`}
+    >
+      {/* Header row */}
+      <div className="flex gap-2 flex-wrap items-start">
+        <input
+          type="text"
+          value={version.number}
+          onChange={(e) => onChange({ ...version, number: e.target.value })}
+          placeholder="v1.4.5"
+          className="w-28 border border-slate-200 rounded-xl px-3 py-2 text-sm font-mono bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+        />
+        <input
+          type="text"
+          value={version.title}
+          onChange={(e) => onChange({ ...version, title: e.target.value })}
+          placeholder="Nombre de la versión"
+          className="flex-1 min-w-32 border border-slate-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+        />
+        <input
+          type="text"
+          value={version.date}
+          onChange={(e) => onChange({ ...version, date: e.target.value })}
+          placeholder="Junio 2026"
+          className="w-36 border border-slate-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+        />
+        <button
+          onClick={onRemove}
+          className="ml-auto text-red-400 hover:text-red-600 border border-red-200 hover:border-red-400 text-xs font-bold px-3 py-2 rounded-xl transition-all"
+        >
+          Eliminar versión
+        </button>
+      </div>
+
+      {/* Status selector */}
+      <div className="flex gap-2 flex-wrap">
+        {VERSION_STATUSES.map((s) => (
+          <button
+            key={s}
+            onClick={() => onChange({ ...version, status: s })}
+            className={`text-xs font-bold px-3 py-1.5 rounded-lg border-2 transition-all ${
+              version.status === s
+                ? s === "done"
+                  ? "bg-slate-700 text-white border-slate-700"
+                  : s === "current"
+                  ? "bg-gradient-to-r from-purple-600 to-cyan-500 text-white border-purple-600"
+                  : "bg-slate-300 text-slate-700 border-slate-400"
+                : "bg-white text-slate-500 border-slate-200 hover:border-slate-400"
+            }`}
+          >
+            {VERSION_STATUS_LABELS[s]}
+          </button>
+        ))}
+      </div>
+
+      {/* Features list */}
+      <div className="space-y-2">
+        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Features</p>
+        {version.features.map((feat, i) => (
+          <div key={i} className="flex gap-2 items-center group">
+            <span className="text-purple-400 text-sm">✓</span>
+            <span className="flex-1 text-sm text-slate-700">{feat}</span>
+            <button
+              onClick={() => removeFeature(i)}
+              className="opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 font-bold transition-all"
+            >
+              ✕
+            </button>
+          </div>
+        ))}
+        {/* Inline add */}
+        <div className="flex gap-2 mt-2">
+          <input
+            type="text"
+            value={newFeature}
+            onChange={(e) => setNewFeature(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && addFeature()}
+            placeholder="Nueva feature… (Enter para agregar)"
+            className="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+          />
+          <button
+            onClick={addFeature}
+            className="bg-slate-100 hover:bg-purple-100 hover:text-purple-700 text-slate-600 font-bold px-4 py-2 rounded-xl text-sm transition-all"
+          >
+            ➕
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -114,14 +296,21 @@ export default function AdminPage() {
     if (!user) return;
     getDoc(doc(db, "landing_config", "content")).then((snap) => {
       if (snap.exists()) {
-        const data = snap.data() as Partial<LandingConfig>;
+        const d = snap.data() as Partial<LandingConfig>;
         setConfig({
-          hero: { ...DEFAULT_LANDING_CONFIG.hero, ...data.hero },
-          stats: { ...DEFAULT_LANDING_CONFIG.stats, ...data.stats },
-          phones: { ...DEFAULT_LANDING_CONFIG.phones, ...data.phones },
-          sellers: { ...DEFAULT_LANDING_CONFIG.sellers, ...data.sellers },
-          buyers: { ...DEFAULT_LANDING_CONFIG.buyers, ...data.buyers },
-          banner: { ...DEFAULT_LANDING_CONFIG.banner, ...data.banner },
+          hero: { ...DEFAULT_LANDING_CONFIG.hero, ...d.hero },
+          stats: { ...DEFAULT_LANDING_CONFIG.stats, ...d.stats },
+          phones: { ...DEFAULT_LANDING_CONFIG.phones, ...d.phones },
+          sellers: { ...DEFAULT_LANDING_CONFIG.sellers, ...d.sellers },
+          buyers: { ...DEFAULT_LANDING_CONFIG.buyers, ...d.buyers },
+          banner: { ...DEFAULT_LANDING_CONFIG.banner, ...d.banner },
+          versions: d.versions ?? DEFAULT_LANDING_CONFIG.versions,
+          features: d.features ?? DEFAULT_LANDING_CONFIG.features,
+          whyChoose: {
+            title: d.whyChoose?.title ?? DEFAULT_LANDING_CONFIG.whyChoose.title,
+            reasons: d.whyChoose?.reasons ?? DEFAULT_LANDING_CONFIG.whyChoose.reasons,
+          },
+          navbar: { ...DEFAULT_LANDING_CONFIG.navbar, ...d.navbar },
         });
       }
     });
@@ -150,8 +339,9 @@ export default function AdminPage() {
     setUploadingSlot(slot);
     try {
       const url = await uploadImage(file, slot);
-      setConfig((prev) => ({ ...prev, phones: { ...prev.phones, [slot]: url } }));
-      await setDoc(doc(db, "landing_config", "content"), { phones: { ...config.phones, [slot]: url } }, { merge: true });
+      const newPhones = { ...config.phones, [slot]: url };
+      setConfig((prev) => ({ ...prev, phones: newPhones }));
+      await setDoc(doc(db, "landing_config", "content"), { phones: newPhones }, { merge: true });
       showToast("✅ Imagen subida");
     } catch {
       showToast("❌ Error al subir imagen");
@@ -161,7 +351,7 @@ export default function AdminPage() {
     }
   };
 
-  // ── Login screen ──────────────────────────────────────
+  // ── Loading spinner ───────────────────────────────────
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0A0A1A]">
@@ -170,6 +360,7 @@ export default function AdminPage() {
     );
   }
 
+  // ── Login screen ──────────────────────────────────────
   if (!user) {
     const handleLogin = async (e: React.FormEvent) => {
       e.preventDefault();
@@ -191,21 +382,15 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#0A0A1A] px-4">
         <div className="w-full max-w-sm space-y-8">
-          {/* Logo */}
           <div className="text-center">
             <p className="text-4xl font-extrabold text-white tracking-wider mb-1">
               COMPR<span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">APP</span>
             </p>
             <p className="text-slate-400 text-sm">Panel de administración</p>
           </div>
-
-          {/* Form */}
           <form onSubmit={handleLogin} className="bg-white/5 border border-white/10 rounded-2xl p-8 space-y-5 backdrop-blur-sm">
-            {/* Email */}
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-                Email
-              </label>
+              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">Email</label>
               <input
                 type="email"
                 value={loginEmail}
@@ -216,12 +401,8 @@ export default function AdminPage() {
                 className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
               />
             </div>
-
-            {/* Contraseña */}
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
-                Contraseña
-              </label>
+              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">Contraseña</label>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -242,15 +423,11 @@ export default function AdminPage() {
                 </button>
               </div>
             </div>
-
-            {/* Error */}
             {loginError && (
               <p className="text-red-400 text-sm font-medium text-center bg-red-500/10 border border-red-500/20 rounded-xl py-2.5 px-4">
                 {loginError}
               </p>
             )}
-
-            {/* Submit */}
             <button
               type="submit"
               disabled={loginLoading}
@@ -271,7 +448,7 @@ export default function AdminPage() {
     <div className="min-h-screen bg-slate-50">
       {/* Toast */}
       {toast && (
-        <div className="fixed top-4 right-4 z-50 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl text-sm font-medium animate-fade-in">
+        <div className="fixed top-4 right-4 z-50 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl text-sm font-medium">
           {toast}
         </div>
       )}
@@ -321,13 +498,7 @@ export default function AdminPage() {
                   placeholder="https://..."
                   className="flex-1 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-400 bg-slate-50"
                 />
-                <input
-                  ref={fileRefs[slot]}
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => handleImageUpload(e, slot)}
-                />
+                <input ref={fileRefs[slot]} type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, slot)} />
                 <button
                   onClick={() => fileRefs[slot].current?.click()}
                   disabled={uploadingSlot === slot}
@@ -388,7 +559,7 @@ export default function AdminPage() {
           <Field label="Mensaje del banner" value={config.banner.message} onChange={(v) => setConfig((p) => ({ ...p, banner: { ...p.banner, message: v } }))} placeholder="Texto que verán todos los visitantes" />
           <div>
             <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Color</label>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {BANNER_COLORS.map((c) => (
                 <button
                   key={c}
@@ -418,6 +589,68 @@ export default function AdminPage() {
             </div>
           )}
           <SaveButton onClick={() => save("banner")} saving={isSaving("banner")} />
+        </SectionCard>
+
+        {/* G — Versiones y novedades */}
+        <SectionCard title="G — 📱 Versiones y novedades">
+          <div className="space-y-4">
+            {config.versions.map((v, i) => (
+              <VersionCard
+                key={i}
+                version={v}
+                onChange={(updated) =>
+                  setConfig((p) => ({
+                    ...p,
+                    versions: p.versions.map((ver, idx) => (idx === i ? updated : ver)),
+                  }))
+                }
+                onRemove={() =>
+                  setConfig((p) => ({
+                    ...p,
+                    versions: p.versions.filter((_, idx) => idx !== i),
+                  }))
+                }
+              />
+            ))}
+          </div>
+          <button
+            onClick={() =>
+              setConfig((p) => ({
+                ...p,
+                versions: [
+                  ...p.versions,
+                  { number: "", date: "", title: "Nueva versión", status: "upcoming", features: [] },
+                ],
+              }))
+            }
+            className="w-full border-2 border-dashed border-slate-300 hover:border-purple-400 text-slate-500 hover:text-purple-600 font-semibold py-3 rounded-xl text-sm transition-all"
+          >
+            ➕ Nueva versión
+          </button>
+          <SaveButton onClick={() => save("versions")} saving={isSaving("versions")} />
+        </SectionCard>
+
+        {/* H — Features principales */}
+        <SectionCard title="H — ⭐ Features principales">
+          <FeatureListEditor
+            items={config.features}
+            onChange={(items) => setConfig((p) => ({ ...p, features: items }))}
+          />
+          <SaveButton onClick={() => save("features")} saving={isSaving("features")} />
+        </SectionCard>
+
+        {/* I — ¿Por qué COMPRAPP? */}
+        <SectionCard title="I — 💡 ¿Por qué COMPRAPP?">
+          <Field
+            label="Título de la sección"
+            value={config.whyChoose.title}
+            onChange={(v) => setConfig((p) => ({ ...p, whyChoose: { ...p.whyChoose, title: v } }))}
+          />
+          <FeatureListEditor
+            items={config.whyChoose.reasons}
+            onChange={(items) => setConfig((p) => ({ ...p, whyChoose: { ...p.whyChoose, reasons: items } }))}
+          />
+          <SaveButton onClick={() => save("whyChoose")} saving={isSaving("whyChoose")} />
         </SectionCard>
 
       </main>
