@@ -8,28 +8,28 @@
  *      Guardar como scripts/serviceAccountKey.json (NO subir a git)
  *   3. node scripts/init-cms.js
  *
- * El script NO sobreescribe si el documento ya existe — usa { merge: false } por defecto.
- * Para forzar la escritura pasa: node scripts/init-cms.js --force
+ * El script NO sobreescribe si el documento ya existe.
+ * Para forzar la escritura: node scripts/init-cms.js --force
  */
 
-const admin = require("firebase-admin");
+const { initializeApp, cert } = require("firebase-admin/app");
+const { getFirestore } = require("firebase-admin/firestore");
+const { existsSync } = require("fs");
 const path = require("path");
-const fs = require("fs");
 
 const KEY_PATH = path.join(__dirname, "serviceAccountKey.json");
 const FORCE = process.argv.includes("--force");
 
-if (!fs.existsSync(KEY_PATH)) {
+if (!existsSync(KEY_PATH)) {
   console.error(`\n❌ No se encontró: ${KEY_PATH}`);
   console.error("   Descárgala desde Firebase Console → Configuración → Cuentas de servicio\n");
   process.exit(1);
 }
 
-admin.initializeApp({
-  credential: admin.credential.cert(require(KEY_PATH)),
-});
+const serviceAccount = require("./serviceAccountKey.json");
 
-const db = admin.firestore();
+initializeApp({ credential: cert(serviceAccount) });
+const db = getFirestore();
 
 const CMS_DATA = {
   hero: {
@@ -197,7 +197,7 @@ async function main() {
   console.log(`   Proyecto: comprapp-da702`);
   console.log(`   Versiones cargadas: ${CMS_DATA.versions.length}`);
   console.log(`   Features cargadas: ${CMS_DATA.features.length}`);
-  console.log(`   Razones "Por qué": ${CMS_DATA.whyChoose.reasons.length}\n`);
+  console.log(`   Razones "Por que": ${CMS_DATA.whyChoose.reasons.length}\n`);
   process.exit(0);
 }
 
