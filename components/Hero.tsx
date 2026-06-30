@@ -14,23 +14,25 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 const BASE_CLIENT_SCREENSHOTS = [
-  "/screenshot-mobile-client.png",
-  "/screenshot-mobile-client-2.png",
-  "/screenshot-mobile-client-3.png",
-  "/screenshot-mobile-client-4.png",
-  "/screenshot-mobile-client-5.png",
+  "/images/screenshots/mobile/stores.jpg",
+  "/images/screenshots/mobile/product_detail.jpg",
+  "/images/screenshots/mobile/cart.jpg",
+  "/images/screenshots/mobile/order_success.jpg",
+  "/images/screenshots/mobile/stores_favorites.jpg",
 ];
 
 const BASE_SELLER_SCREENSHOTS = [
-  "/screenshot-mobile-seller.png",
-  "/screenshot-mobile-seller-2.png",
-  "/screenshot-mobile-seller-3.png",
-  "/screenshot-mobile-seller-4.png",
+  "/images/screenshots/mobile/seller_home.jpg",
+  "/images/screenshots/mobile/pos_mobile.jpg",
+  "/images/screenshots/mobile/chat.jpg",
 ];
 
 const BASE_DASHBOARD_SCREENSHOTS = [
-  "/screenshot-dashboard.png",
-  "/screenshot-dashboard-2.png",
+  "/images/screenshots/web/dashboard.png",
+  "/images/screenshots/web/reports.png",
+  "/images/screenshots/web/inventory.png",
+  "/images/screenshots/web/orders_web.png",
+  "/images/screenshots/web/pos_web.png",
 ];
 
 function useSlideshow(images: string[], intervalMs = 3000) {
@@ -191,7 +193,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.75 }}
           className="text-xs text-slate-400 pt-2"
         >
-          Versión actual: <span className="font-semibold text-slate-500">v1.2.0</span>
+          Versión actual: <span className="font-semibold text-slate-500">v1.4.3</span>
         </motion.p>
       </div>
 
