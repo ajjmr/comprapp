@@ -8,12 +8,14 @@ import { db } from "@/lib/firebase";
 interface FormData {
   nombre: string;
   gmail: string;
+  phone: string;
   ciudad: string;
 }
 
 interface FormErrors {
   nombre?: string;
   gmail?: string;
+  phone?: string;
   ciudad?: string;
 }
 
@@ -33,7 +35,7 @@ function fadeUp(delay = 0) {
 }
 
 export default function BetaSection() {
-  const [form, setForm] = useState<FormData>({ nombre: "", gmail: "", ciudad: "" });
+  const [form, setForm] = useState<FormData>({ nombre: "", gmail: "", phone: "", ciudad: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -57,15 +59,16 @@ export default function BetaSection() {
 
     try {
       await addDoc(collection(db, "beta_testers"), {
-        nombre: form.nombre.trim(),
-        gmail: form.gmail.trim().toLowerCase(),
-        ciudad: form.ciudad.trim(),
-        timestamp: serverTimestamp(),
+        name: form.nombre.trim(),
+        email: form.gmail.trim().toLowerCase(),
+        phone: form.phone.trim() || null,
+        city: form.ciudad.trim(),
+        createdAt: serverTimestamp(),
         status: "pendiente",
       });
 
       setStatus("success");
-      setForm({ nombre: "", gmail: "", ciudad: "" });
+      setForm({ nombre: "", gmail: "", phone: "", ciudad: "" });
     } catch {
       setStatus("error");
     }
@@ -245,8 +248,23 @@ export default function BetaSection() {
               {errors.gmail && <p className="text-red-400 text-xs mt-1.5">{errors.gmail}</p>}
             </motion.div>
 
-            {/* Ciudad */}
+            {/* Teléfono (opcional) */}
             <motion.div {...fadeUp(0.25)}>
+              <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">
+                Teléfono <span className="normal-case font-normal text-slate-500">(opcional)</span>
+              </label>
+              <FocusInput
+                type="tel"
+                placeholder="Ej: +58 412 1234567"
+                value={form.phone}
+                onChange={handleChange("phone")}
+                hasError={!!errors.phone}
+                borderColorFn={(f) => borderColor("phone", f)}
+              />
+            </motion.div>
+
+            {/* Ciudad */}
+            <motion.div {...fadeUp(0.3)}>
               <label className="block text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">
                 Ciudad
               </label>
@@ -268,7 +286,7 @@ export default function BetaSection() {
             )}
 
             {/* Botón */}
-            <motion.div {...fadeUp(0.3)} className="pt-4">
+            <motion.div {...fadeUp(0.35)} className="pt-4">
               <button
                 type="submit"
                 disabled={status === "loading"}

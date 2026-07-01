@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, ChangeEvent } from "react";
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut, User } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut, User, FirebaseError } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth, db, storage } from "@/lib/firebase";
@@ -372,8 +372,17 @@ export default function AdminPage() {
       setLoginLoading(true);
       try {
         await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-      } catch {
-        setLoginError("Email o contraseña incorrectos");
+      } catch (err) {
+        const code = err instanceof FirebaseError ? err.code : "";
+        const AUTH_ERRORS: Record<string, string> = {
+          "auth/user-not-found":      "Usuario no encontrado. Verifica tus credenciales en Firebase Console.",
+          "auth/wrong-password":      "Contraseña incorrecta.",
+          "auth/too-many-requests":   "Demasiados intentos. Espera unos minutos.",
+          "auth/invalid-credential":  "Credenciales inválidas. Verifica email y contraseña.",
+          "auth/invalid-email":       "El email ingresado no es válido.",
+          "auth/network-request-failed": "Error de red. Verifica tu conexión.",
+        };
+        setLoginError(AUTH_ERRORS[code] ?? "Error al iniciar sesión. Intenta de nuevo.");
       } finally {
         setLoginLoading(false);
       }
