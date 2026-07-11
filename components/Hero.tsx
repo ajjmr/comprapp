@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import DownloadButton from "@/components/DownloadButton";
 import { useLandingConfig } from "@/lib/hooks/useLandingConfig";
 
 interface BeforeInstallPromptEvent extends Event {
@@ -165,13 +164,18 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.55, ease: "easeOut" }}
           className="flex flex-wrap gap-4 justify-center lg:justify-start pt-6"
         >
-          <DownloadButton className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:opacity-90 transition-all text-center flex items-center gap-3">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.jotasystem.comprapp&pli=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl hover:opacity-90 transition-all text-center flex items-center gap-3"
+          >
             <span className="text-2xl">📱</span>
             <div className="text-left">
               <p className="text-[10px] font-normal opacity-80">Descarga gratis</p>
               <p className="text-sm font-bold">{config.hero.buttonPlayStore}</p>
             </div>
-          </DownloadButton>
+          </a>
 
           <Link
             href="https://app.comprapp.net"

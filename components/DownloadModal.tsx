@@ -101,19 +101,23 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
             {/* Options */}
             <div className="p-4 space-y-2.5">
 
-              {/* A) Google Play - disabled */}
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
+              {/* A) Google Play - activo */}
+              <a
+                href="https://play.google.com/store/apps/details?id=com.jotasystem.comprapp&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors cursor-pointer"
+                onClick={onClose}
+              >
                 <span className="flex-shrink-0 text-green-500">
                   <IconGooglePlay />
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm text-slate-600">Google Play</p>
-                  <p className="text-xs text-slate-400">Próximamente</p>
+                  <p className="font-bold text-sm text-slate-800">Google Play</p>
+                  <p className="text-xs text-slate-500">Android 8.0+</p>
                 </div>
-                <span className="text-[11px] font-semibold bg-slate-200 text-slate-500 px-2.5 py-1 rounded-full flex-shrink-0 whitespace-nowrap">
-                  Próximamente
-                </span>
-              </div>
+                <ChevronRight />
+              </a>
 
               {/* C) Android APK - pausado */}
 <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
@@ -129,19 +133,23 @@ export default function DownloadModal({ isOpen, onClose }: Props) {
   </span>
 </div>
 
-              {/* D) Dashboard Web - pausado */}
-<div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
-  <span className="flex-shrink-0 text-blue-500">
-    <IconGlobe />
-  </span>
-  <div className="flex-1 min-w-0">
-    <p className="font-bold text-sm text-slate-600">Dashboard Web</p>
-    <p className="text-xs text-slate-400">Disponible muy pronto</p>
-  </div>
-  <span className="text-[11px] font-semibold bg-purple-100 text-purple-600 px-2.5 py-1 rounded-full flex-shrink-0 whitespace-nowrap">
-    Muy pronto
-  </span>
-</div>
+              {/* D) Dashboard Web - activo */}
+              <a
+                href="https://app.comprapp.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer"
+                onClick={onClose}
+              >
+                <span className="flex-shrink-0 text-blue-500">
+                  <IconGlobe />
+                </span>
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-sm text-slate-800">Dashboard Web</p>
+                  <p className="text-xs text-slate-500">app.comprapp.net</p>
+                </div>
+                <ChevronRight />
+              </a>
 
               {/* E) Windows - disabled */}
               <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 cursor-not-allowed select-none">
