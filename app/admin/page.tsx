@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState, useRef, ChangeEvent } from "react";
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut, User, FirebaseError } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged, signOut, User } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth, db, storage } from "@/lib/firebase";
