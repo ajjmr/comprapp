@@ -10,7 +10,7 @@ import { LandingConfig, DEFAULT_LANDING_CONFIG, CmsVersion, CmsFeature } from "@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const ADMIN_EMAIL = "andersonjose@gmail.com";
+const ADMIN_EMAIL = "andersonjosemaita98@gmail.com";
 
 const BANNER_COLORS = ["purple", "amber", "red", "green"] as const;
 const BANNER_COLOR_LABELS: Record<string, string> = {
@@ -405,7 +405,7 @@ export default function AdminPage() {
                 type="email"
                 value={loginEmail}
                 onChange={(e) => { setLoginEmail(e.target.value); setLoginError(""); }}
-                placeholder="andersonjose@gmail.com"
+                placeholder="andersonjosemaita98@gmail.com"
                 autoComplete="email"
                 required
                 className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"

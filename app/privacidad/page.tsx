@@ -203,10 +203,10 @@ export default function Privacidad() {
             <p className="mt-3">
               Para ejercer cualquiera de estos derechos, escríbenos a{" "}
               <a
-                href="mailto:andersonjose@gmail.com"
+                href="mailto:andersonjosemaita98@gmail.com"
                 className="text-purple-600 hover:text-cyan-600 font-semibold transition-colors"
               >
-                andersonjose@gmail.com
+                andersonjosemaita98@gmail.com
               </a>
               .
             </p>
@@ -284,10 +284,10 @@ export default function Privacidad() {
             <div className="mt-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
               <p className="font-semibold text-slate-800">JotaSystem</p>
               <a
-                href="mailto:andersonjose@gmail.com"
+                href="mailto:andersonjosemaita98@gmail.com"
                 className="text-purple-600 hover:text-cyan-600 font-bold transition-colors"
               >
-                andersonjose@gmail.com
+                andersonjosemaita98@gmail.com
               </a>
             </div>
           </section>

@@ -271,10 +271,10 @@ export default function Terminos() {
             <div className="mt-3 p-4 bg-purple-50 rounded-xl border border-purple-100">
               <p className="font-semibold text-slate-800">JotaSystem</p>
               <a
-                href="mailto:andersonjose@gmail.com"
+                href="mailto:andersonjosemaita98@gmail.com"
                 className="text-purple-600 hover:text-cyan-600 font-bold transition-colors"
               >
-                andersonjose@gmail.com
+                andersonjosemaita98@gmail.com
               </a>
             </div>
           </section>
