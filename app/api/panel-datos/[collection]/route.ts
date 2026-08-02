@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from "@/lib/firebase-admin";
 import { Timestamp, Query, DocumentData } from "firebase-admin/firestore";
+import { isSessionValid } from "@/lib/panel-session";
 
 // Solo lectura — este endpoint nunca expone métodos de escritura.
 // Bypasa Security Rules de Firestore via Admin SDK (acceso administrativo total).
@@ -32,6 +33,12 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ collection: string }> }
 ) {
+  // Verificar sesión antes de devolver cualquier dato
+  const valid = await isSessionValid();
+  if (!valid) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
+  }
+
   const { collection } = await params;
 
   if (!ALLOWED_COLLECTIONS.has(collection)) {

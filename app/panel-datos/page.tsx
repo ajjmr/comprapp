@@ -1,11 +1,5 @@
 "use client";
 
-// NOTA DE SEGURIDAD: La contraseña está en una variable NEXT_PUBLIC_, que es
-// visible en el bundle del cliente. Esta es una protección de UI básica — válida
-// para uso administrativo propio sin datos ultra-sensibles. No es a prueba de
-// ataques dirigidos. Si se necesita seguridad real, mover la verificación a un
-// endpoint server-side con una variable sin el prefijo NEXT_PUBLIC_.
-
 import { useState, useEffect, useCallback } from "react";
 
 // ── Tipos ─────────────────────────────────────────────────────────────────────
@@ -148,20 +142,28 @@ function exportCSV(docs: Doc[], filename: string) {
 function PasswordScreen({ onSuccess }: { onSuccess: () => void }) {
   const [pwd, setPwd] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const correct = process.env.NEXT_PUBLIC_DATA_PANEL_PASSWORD;
-    if (!correct) {
-      setError("Variable NEXT_PUBLIC_DATA_PANEL_PASSWORD no configurada.");
-      return;
-    }
-    if (pwd === correct) {
-      sessionStorage.setItem("panel_datos_auth", "true");
-      onSuccess();
-    } else {
-      setError("Contraseña incorrecta.");
-      setPwd("");
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/panel-datos/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pwd }),
+      });
+      if (res.ok) {
+        onSuccess();
+      } else {
+        setError("Contraseña incorrecta.");
+        setPwd("");
+      }
+    } catch {
+      setError("Error de conexión. Intenta de nuevo.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -185,6 +187,7 @@ function PasswordScreen({ onSuccess }: { onSuccess: () => void }) {
               placeholder="••••••••"
               autoFocus
               required
+              disabled={loading}
               className="w-full px-4 py-3 rounded-xl text-white text-sm outline-none"
               style={{ background: "rgba(255,255,255,0.06)", border: "1.5px solid rgba(108,63,199,0.4)" }}
             />
@@ -192,10 +195,12 @@ function PasswordScreen({ onSuccess }: { onSuccess: () => void }) {
           {error && <p className="text-red-400 text-sm text-center">{error}</p>}
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl font-bold text-white text-sm"
-            style={{ background: "linear-gradient(90deg,#6C3FC7,#4FACFE)", boxShadow: "0 4px 24px rgba(108,63,199,0.35)" }}
+            disabled={loading}
+            className="w-full py-3.5 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2"
+            style={{ background: "linear-gradient(90deg,#6C3FC7,#4FACFE)", boxShadow: "0 4px 24px rgba(108,63,199,0.35)", opacity: loading ? 0.7 : 1 }}
           >
-            Entrar
+            {loading && <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />}
+            {loading ? "Verificando…" : "Entrar"}
           </button>
         </form>
       </div>
@@ -486,9 +491,11 @@ function DataExplorer() {
 export default function PanelDatosPage() {
   const [isAuth, setIsAuth] = useState<boolean | null>(null);
 
+  // Al cargar, verificar si hay cookie de sesión válida en el servidor
   useEffect(() => {
-    const stored = sessionStorage.getItem("panel_datos_auth");
-    setIsAuth(stored === "true");
+    fetch("/api/panel-datos/auth")
+      .then((res) => setIsAuth(res.ok))
+      .catch(() => setIsAuth(false));
   }, []);
 
   if (isAuth === null) {
