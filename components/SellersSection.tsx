@@ -34,14 +34,24 @@ export default function SellersSection() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="https://app.comprapp.net/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:opacity-90 transition-all"
-            >
-              🏪 {button} →
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="https://app.comprapp.net/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold px-7 py-4 rounded-xl shadow-lg hover:opacity-90 transition-all"
+              >
+                💻 {button} →
+              </Link>
+              <Link
+                href="https://play.google.com/store/apps/details?id=com.jotasystem.comprapp&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border-2 border-purple-600 text-purple-700 font-bold px-7 py-4 rounded-xl hover:bg-purple-50 transition-all"
+              >
+                📱 Descargar app
+              </Link>
+            </div>
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-cyan-50 rounded-3xl" />
