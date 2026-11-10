@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "@/lib/firebase";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "@/lib/firebase";
 
 interface FormData {
   nombre: string;
@@ -58,13 +58,13 @@ export default function BetaSection() {
     setStatus("loading");
 
     try {
-      await addDoc(collection(db, "beta_testers"), {
+      const registerBetaTester = httpsCallable(functions, "registerBetaTester");
+      await registerBetaTester({
         name: form.nombre.trim(),
         email: form.gmail.trim().toLowerCase(),
         phone: form.phone.trim() || null,
         city: form.ciudad.trim(),
-        createdAt: serverTimestamp(),
-        status: "pendiente",
+        source: "landing",
       });
 
       setStatus("success");
